@@ -9,15 +9,84 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/extension/bmap.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
+
     <title>Zhangyr's Pages</title>
   </head>
   <body>
-  <div class="jumbotron">
+  <div style="width:100%; height : 100%" >
     <div class="container">
-    <h1>Hello, zhangyr!</h1>
-    <p>Github pages</p>
-    <p><a class="btn btn-primary btn-lg" href="https://github.com/yurzhang" role="button">Learn more</a></p>
+      <h3>出账进度图</h3>
     </div>
+    <div id="billScheduleMap" style="width:100%; height : 400px" ></div>
   </div>
+
+  <script type="text/javascript">
+    function mapShow(){
+      // var map = new BMap.Map("allmap");
+      var bmapCharts = echarts.init(document.getElementById('billScheduleMap'));
+      var option = {
+        bmap: {
+            // center: "兰州", // 中心位置坐标
+            // zoom: 4, // 地图缩放比例
+            // roam: true // 开启用户缩放
+        }
+      }
+      bmapCharts.setOption(option);
+      var map = bmapCharts.getModel().getComponent('bmap').getBMap();
+      map.centerAndZoom("兰州", 5);
+
+      var opts = {    
+          width : 250,     // 信息窗口宽度    
+          height: 100,     // 信息窗口高度    
+          title : "测试"  // 信息窗口标题   
+      }
+
+      // map.addEventListener("click", function(e){
+      //   var point = new BMap.Point(e.point.lng, e.point.lat);
+      //   var infoWindow = new BMap.InfoWindow(e.point.lng + ", " + e.point.lat, opts);  // 创建信息窗口对象    
+      //   map.openInfoWindow(infoWindow, point);      // 打开信息窗口
+      // });
+      map.addControl(new BMap.NavigationControl()); // 缩放控件
+      map.addControl(new BMap.ScaleControl()); // 比例尺
+      // map.enableScrollWheelZoom(); //滚轮缩放
+      map.disableScrollWheelZoom() //禁止滚轮缩放
+      map.disableDoubleClickZoom() //禁止双击放大
+      var provList = new Array(["黑龙江","#F09ABD"],["吉林省","#01933F"],["辽宁","#FAC300"],["内蒙古","#FCF502"],["河北","#F09ABD"],["北京","#FCF502"],["天津","#01933F"],["山东省","#FCF502"],["江苏","#D8EDDA"],["上海","#B9B4C8"],["浙江","#FCF502"],["福建","#FAC300"],["台湾","#F09ABD"],["广东","#FCF502"],["香港","#F09ABD"],["澳门","#F09ABD"],["海南","#F09ABD"],["广西","#FAC300"],["云南","#FCF502"],["西藏","#B9B4C8"],["新疆","#FAC300"],["甘肃","#01933F"],["青海","#F09ABD"],["四川","#FAC300"],["贵州","#01933F"],["重庆","#B9B4C8"],["湖南","#F09ABD"],["江西","#01933F"],["湖北","#FCF502"],["安徽","#FAC300"],["河南","#B9B4C8"],["陕西","#F09ABD"],["山西","#01933F"],["宁夏","#FAC300"]);
+      function getBoundary(provItem){    
+          // console.log(provItem);   
+          var bdary = new BMap.Boundary();
+          bdary.get(provItem[0], function(rs){       //获取行政区域
+              // map.clearOverlays();        //清除地图覆盖物       
+              var count = rs.boundaries.length; //行政区域的点有多少个
+              if (count === 0) {
+                  alert('未能获取当前输入行政区域');
+                  return ;
+              }
+              // console.log("count:" + count);
+              var pointArray = [];
+              for (var i = 0; i < count; i++) {
+                  var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 1, strokeColor: "#aaaaaa", fillColor: provItem[1]}); //建立多边形覆盖物
+                  map.addOverlay(ply);  //添加覆盖物
+                  pointArray = pointArray.concat(ply.getPath());
+              }
+              // map.setViewport(pointArray);    //调整视野  
+          });   
+      }
+
+      setTimeout(function(){
+        provList.forEach(function(item){
+          getBoundary(item);
+        });
+      }, 10);
+    }
+
+    $(document).ready(function(){
+      mapShow();
+    });
+  </script>
   </body>
 </html>
