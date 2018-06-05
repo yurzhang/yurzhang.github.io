@@ -24,7 +24,7 @@
     <div class="container">
       <h1>增值业务出账进度图</h1>
     </div>
-    <div id="guoNBillScheduleMap" style="width:100%; height : 750px" ></div>
+    <div id="zengZhBillScheduleMap" style="width:100%; height : 750px" ></div>
     <div class="container">
       <h1>网间业务出账进度图</h1>
     </div>
@@ -54,11 +54,16 @@
 
           console.log(provDate);
 
-          var bmapCharts = echarts.init(document.getElementById('guoNBillScheduleMap'));
+          var bmapCharts = echarts.init(document.getElementById('zengZhBillScheduleMap'));
           var option = {
             title : {
                 text: '增值业务出账进度',
                 x:'center'
+                textStyle: {
+                  fontSize: 26,
+                  fontWeight: 'bolder',
+                  color: '#000'
+                }
             },
             tooltip : {//提示框组件。
                 trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
