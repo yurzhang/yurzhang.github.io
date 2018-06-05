@@ -52,8 +52,6 @@
           });
       });
       // var map = new BMap.Map("allmap");
-      console.log(provDateSettings);
-      
       var bmapCharts = echarts.init(document.getElementById('guoNBillScheduleMap'));
       var option = {
         title : {
@@ -72,12 +70,12 @@
         visualMap: {//颜色的设置  dataRange
             x: 'left',
             y: 'bottom',
-            splitList: provDateSettings
-            // splitList: [
-            //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-            //     {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-            //     {start: 2, end: 2, label: '出账完成，数据上报PRM', color: g_state_color[10]}
-            // ],
+            splitList: [
+                {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+            ],
+            color: [g_state_color[0], g_state_color[1], g_state_color[10]]
             // text:['高','低'],// 文本，默认为数值文本
         },
         toolbox: {//工具栏
