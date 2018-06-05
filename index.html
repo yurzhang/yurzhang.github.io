@@ -44,8 +44,8 @@
                 value: info.state
               });
               provDateSettings.push({
-                start: info.value,
-                end: info.value,
+                start: info.state,
+                end: info.state,
                 label: info.name,
                 color: g_state_color[info.state]
               });
@@ -106,6 +106,7 @@
             {
                 name: '出账进度',
                 type: 'map',
+                mapType: 'china',
                 roam: false,//是否开启鼠标缩放和平移漫游
                 itemStyle:{//地图区域的多边形 图形样式
                     normal:{//是图形在默认状态下的样式
