@@ -41,7 +41,7 @@
           $.each(data,function(infoIndex,info){  
               provDate.push({
                 name: info.name,
-                value: info.value
+                value: info.state
               });
               provDateSettings.push({
                 start: info.value,
@@ -74,8 +74,7 @@
                 {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
                 {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
                 {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
-            ],
-            color: [g_state_color[0], g_state_color[1], g_state_color[10]]
+            ]
             // text:['高','低'],// 文本，默认为数值文本
         },
         toolbox: {//工具栏
