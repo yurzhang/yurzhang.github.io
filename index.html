@@ -14,12 +14,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/extension/bmap.js"></script>
     <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
 
+     <link rel="stylesheet" type="text/css" href="./style/jzjsProv.css">
+
+     <script type="text/javascript" src="./map/js/china.js"></script>
+
     <title>集中综合结算出账进度</title>
   </head>
   <body>
   <div style="width:100%; height : 100%" >
     <div class="container">
-      <h1>国内业务出账进度图</h1>
+      <h1>增值业务出账进度图</h1>
     </div>
     <div id="guoNBillScheduleMap" style="width:100%; height : 750px" ></div>
     <div class="container">
@@ -30,62 +34,90 @@
 
   <script type="text/javascript">
     function mapShow(){
+
+      var provDate = new Array();
+      $.getJSON("./data/zengZhProv.json",function(data){  
+          $.each(data,function(infoIndex,info){  
+              provDate.push({
+                name: info.name,
+                value: info.value
+              });
+          });
+      });
       // var map = new BMap.Map("allmap");
       var bmapCharts = echarts.init(document.getElementById('guoNBillScheduleMap'));
       var option = {
-        bmap: {
-            // center: "兰州", // 中心位置坐标
-            // zoom: 4, // 地图缩放比例
-            roam: true // 开启用户缩放
-        }
-      }
+        title : {
+            text: '增值业务出账进度',
+            x:'center'
+        },
+        tooltip : {//提示框组件。
+            trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+        },
+        legend: {
+            orient: 'horizontal',//图例的排列方向
+            x:'left',//图例的位置
+            data:['出账进度']
+        },
+
+        visualMap: {//颜色的设置  dataRange
+            x: 'left',
+            y: 'center',
+            splitList: [
+                {start: 0, end: 0, label: '未出账'， color: g_state_color[0]},
+                {start: 1, end: 1, label: '出账中'， color: g_state_color[1]},
+                {start: 2, end: 2, label: '出账完成，数据上报PRM'， color: g_state_color[9]}
+            ],
+            // text:['高','低'],// 文本，默认为数值文本
+        },
+        toolbox: {//工具栏
+            show: true,
+            orient : 'vertical',//工具栏 icon 的布局朝向
+            x: 'right',
+            y: 'center',
+            feature : {//各工具配置项。
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
+                restore : {show: true},//配置项还原。
+                saveAsImage : {show: true}//保存为图片。
+            }
+        },
+        roamController: {//控制地图的上下左右放大缩小 图上没有显示
+            show: true,
+            x: 'right',
+            mapTypeControl: {
+                'china': true
+            }
+        },
+        series : [
+            {
+                name: '出账进度',
+                type: 'map',
+                mapType: 'china',
+                roam: false,//是否开启鼠标缩放和平移漫游
+                itemStyle:{//地图区域的多边形 图形样式
+                    normal:{//是图形在默认状态下的样式
+                        label:{
+                            show:true,//是否显示标签
+                            textStyle: {
+                                color: "rgb(249, 249, 249)"
+                            }
+                        }
+                    },
+                    emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                        label:{show:true}
+                    }
+                },
+                top:"3%",//组件距离容器的距离
+                data:provDate
+            }
+        ]
+      };
       bmapCharts.setOption(option);
-      var map = bmapCharts.getModel().getComponent('bmap').getBMap();
-      map.centerAndZoom("兰州", 5);
-
-      var opts = {    
-          width : 250,     // 信息窗口宽度    
-          height: 100,     // 信息窗口高度    
-          title : "测试"  // 信息窗口标题   
-      }
-
-      // map.addEventListener("click", function(e){
-      //   var point = new BMap.Point(e.point.lng, e.point.lat);
-      //   var infoWindow = new BMap.InfoWindow(e.point.lng + ", " + e.point.lat, opts);  // 创建信息窗口对象    
-      //   map.openInfoWindow(infoWindow, point);      // 打开信息窗口
-      // });
-      map.addControl(new BMap.NavigationControl()); // 缩放控件
-      map.addControl(new BMap.ScaleControl()); // 比例尺
-      // map.enableScrollWheelZoom(); //滚轮缩放
-      map.disableScrollWheelZoom() //禁止滚轮缩放
-      map.disableDoubleClickZoom() //禁止双击放大
-      var provList = new Array(["黑龙江","#F09ABD"],["吉林省","#01933F"],["辽宁","#FAC300"],["内蒙古","#FCF502"],["河北","#F09ABD"],["北京","#FCF502"],["天津","#01933F"],["山东省","#FCF502"],["江苏","#D8EDDA"],["上海","#B9B4C8"],["浙江","#FCF502"],["福建","#FAC300"],["台湾","#F09ABD"],["广东","#FCF502"],["香港","#F09ABD"],["澳门","#F09ABD"],["海南","#F09ABD"],["广西","#FAC300"],["云南","#FCF502"],["西藏","#B9B4C8"],["新疆","#FAC300"],["甘肃","#01933F"],["青海","#F09ABD"],["四川","#FAC300"],["贵州","#01933F"],["重庆","#B9B4C8"],["湖南","#F09ABD"],["江西","#01933F"],["湖北","#FCF502"],["安徽","#FAC300"],["河南","#B9B4C8"],["陕西","#F09ABD"],["山西","#01933F"],["宁夏","#FAC300"]);
-      function getBoundary(provItem){    
-          // console.log(provItem);   
-          var bdary = new BMap.Boundary();
-          bdary.get(provItem[0], function(rs){       //获取行政区域
-              // map.clearOverlays();        //清除地图覆盖物       
-              var count = rs.boundaries.length; //行政区域的点有多少个
-              if (count === 0) {
-                  alert('未能获取当前输入行政区域');
-                  return ;
-              }
-              // console.log("count:" + count);
-              var pointArray = [];
-              for (var i = 0; i < count; i++) {
-                  var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 1, strokeColor: "#aaaaaa", fillColor: provItem[1]}); //建立多边形覆盖物
-                  map.addOverlay(ply);  //添加覆盖物
-                  pointArray = pointArray.concat(ply.getPath());
-              }
-              // map.setViewport(pointArray);    //调整视野  
-          });   
-      }
-
-      setTimeout(function(){
-        provList.forEach(function(item){
-          getBoundary(item);
-        });
-      }, 10);
+      bmapCharts.on('mouseover', function (params) {
+          var dataIndex = params.dataIndex;
+          console.log(params);
+      });
     }
 
     function wangJMapShow(){
