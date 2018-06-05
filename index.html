@@ -35,11 +35,20 @@
     function mapShow(){
 
       var provDate = new Array();
+      var provDateSettings = new Array();
+
       $.getJSON("./data/zengZhProv.json",function(data){  
           $.each(data,function(infoIndex,info){  
               provDate.push({
                 name: info.name,
                 value: info.value
+              });
+              provDateSettings.push({
+                name: info.name,
+                itemStyle:{
+                  areaColor: g_state_color[info.state],
+                  color: "#000000"
+                }
               });
           });
       });
@@ -88,25 +97,30 @@
                 'china': true
             }
         },
+        geo: {
+            map: 'china',
+            top: 0,
+            bottom: 0,
+            regions: provDateSettings   // 设置单独的样式。
+        }
         series : [
             {
                 name: '出账进度',
                 type: 'map',
-                mapType: 'china',
-                roam: false,//是否开启鼠标缩放和平移漫游
-                itemStyle:{//地图区域的多边形 图形样式
-                    normal:{//是图形在默认状态下的样式
-                        label:{
-                            show:true,//是否显示标签
-                            textStyle: {
-                                color: "rgb(249, 249, 249)"
-                            }
-                        }
-                    },
-                    emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
-                        label:{show:true}
-                    }
-                },
+                // roam: false,//是否开启鼠标缩放和平移漫游
+                // itemStyle:{//地图区域的多边形 图形样式
+                //     normal:{//是图形在默认状态下的样式
+                //         label:{
+                //             show:true,//是否显示标签
+                //             textStyle: {
+                //                 color: "rgb(249, 249, 249)"
+                //             }
+                //         }
+                //     },
+                //     emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                //         label:{show:true}
+                //     }
+                // },
                 top:"3%",//组件距离容器的距离
                 data:provDate
             }
