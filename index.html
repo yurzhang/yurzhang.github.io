@@ -50,90 +50,91 @@
                 color: g_state_color[info.state]
               });
           });
-      });
       // var map = new BMap.Map("allmap");
 
-      console.log(provDate);
+          console.log(provDate);
 
-      var bmapCharts = echarts.init(document.getElementById('guoNBillScheduleMap'));
-      var option = {
-        title : {
-            text: '增值业务出账进度',
-            x:'center'
-        },
-        tooltip : {//提示框组件。
-            trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
-        },
-        legend: {
-            orient: 'horizontal',//图例的排列方向
-            x:'left',//图例的位置
-            data:['出账进度']
-        },
+          var bmapCharts = echarts.init(document.getElementById('guoNBillScheduleMap'));
+          var option = {
+            title : {
+                text: '增值业务出账进度',
+                x:'center'
+            },
+            tooltip : {//提示框组件。
+                trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+            },
+            legend: {
+                orient: 'horizontal',//图例的排列方向
+                x:'left',//图例的位置
+                data:['出账进度']
+            },
 
-        visualMap: {//颜色的设置  dataRange
-            x: 'left',
-            y: 'bottom',
-            splitList: [
-                {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-                {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-                {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
-            ]
-            // text:['高','低'],// 文本，默认为数值文本
-        },
-        toolbox: {//工具栏
-            show: true,
-            orient : 'vertical',//工具栏 icon 的布局朝向
-            x: 'right',
-            y: 'center',
-            feature : {//各工具配置项。
-                mark : {show: true},
-                dataView : {show: true, readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
-                restore : {show: true},//配置项还原。
-                saveAsImage : {show: true}//保存为图片。
-            }
-        },
-        roamController: {//控制地图的上下左右放大缩小 图上没有显示
-            show: true,
-            x: 'right',
-            mapTypeControl: {
-                'china': true
-            }
-        },
-        // geo: {
-        //     map: 'china',
-        //     top: 0,
-        //     bottom: 0,
-        //     regions: provDateSettings   // 设置单独的样式。
-        // },
-        series : [
-            {
-                name: '出账进度',
-                type: 'map',
-                mapType: 'china',
-                roam: false,//是否开启鼠标缩放和平移漫游
-                itemStyle:{//地图区域的多边形 图形样式
-                    normal:{//是图形在默认状态下的样式
-                        label:{
-                            show:true,//是否显示标签
-                            textStyle: {
-                                color: "rgb(29, 29, 29)"
+            visualMap: {//颜色的设置  dataRange
+                x: 'left',
+                y: 'bottom',
+                splitList: [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+                ]
+                // text:['高','低'],// 文本，默认为数值文本
+            },
+            toolbox: {//工具栏
+                show: true,
+                orient : 'vertical',//工具栏 icon 的布局朝向
+                x: 'right',
+                y: 'center',
+                feature : {//各工具配置项。
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
+                    restore : {show: true},//配置项还原。
+                    saveAsImage : {show: true}//保存为图片。
+                }
+            },
+            roamController: {//控制地图的上下左右放大缩小 图上没有显示
+                show: true,
+                x: 'right',
+                mapTypeControl: {
+                    'china': true
+                }
+            },
+            // geo: {
+            //     map: 'china',
+            //     top: 0,
+            //     bottom: 0,
+            //     regions: provDateSettings   // 设置单独的样式。
+            // },
+            series : [
+                {
+                    name: '出账进度',
+                    type: 'map',
+                    mapType: 'china',
+                    roam: false,//是否开启鼠标缩放和平移漫游
+                    itemStyle:{//地图区域的多边形 图形样式
+                        normal:{//是图形在默认状态下的样式
+                            label:{
+                                show:true,//是否显示标签
+                                textStyle: {
+                                    color: "rgb(29, 29, 29)"
+                                }
                             }
+                        },
+                        emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                            label:{show:true}
                         }
                     },
-                    emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
-                        label:{show:true}
-                    }
-                },
-                top:"3%",//组件距离容器的距离
-                data:provDate
-            }
-        ]
-      };
-      bmapCharts.setOption(option);
-      bmapCharts.on('mouseover', function (params) {
-          var dataIndex = params.dataIndex;
-          console.log(params);
+                    top:"3%",//组件距离容器的距离
+                    data:provDate
+                }
+            ]
+          };
+          bmapCharts.setOption(option);
+          bmapCharts.on('mouseover', function (params) {
+              var dataIndex = params.dataIndex;
+              console.log(params);
+          });
       });
+
     }
 
     function wangJMapShow(){
