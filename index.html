@@ -32,12 +32,12 @@
   </div>
 
   <script type="text/javascript">
-    function mapShow(){
+    function mapShow(jsonName, mapId, titleName, nowSplitList){
 
       var provDate = new Array();
       var provDateSettings = new Array();
 
-      $.get("./data/zengZhProv.json").done(function(data){  
+      $.get("./data/"+jsonName).done(function(data){  
           $.each(data,function(infoIndex,info){  
               provDate.push({
                 name: info.name,
@@ -54,10 +54,10 @@
 
           console.log(provDate);
 
-          var bmapCharts = echarts.init(document.getElementById('zengZhBillScheduleMap'));
+          var bmapCharts = echarts.init(document.getElementById(mapId));
           var option = {
             title : {
-                text: '增值业务出账进度',
+                text: titleName,
                 x:'center',
                 textStyle: {
                   fontSize: 26,
@@ -73,21 +73,22 @@
                 selectedMode:false, // 关闭图例点击
                 orient: 'horizontal',//图例的排列方向
                 x:'left',//图例的位置
-                data:['出账进度']
+                data:['出账进度'],
                 textStyle :{
                   fontSize: 26,
                   color: '#333'
-                }
+                },
             },
 
             visualMap: {//颜色的设置  dataRange
                 x: 'left',
                 y: 'bottom',
-                splitList: [
-                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-                    {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
-                ]
+                splitList : nowSplitList,
+                // splitList: [
+                //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                //     {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+                // ]
                 // text:['高','低'],// 文本，默认为数值文本
             },
             toolbox: {//工具栏
@@ -109,12 +110,6 @@
                     'china': true
                 }
             },
-            // geo: {
-            //     map: 'china',
-            //     top: 0,
-            //     bottom: 0,
-            //     regions: provDateSettings   // 设置单独的样式。
-            // },
             series : [
                 {
                     name: '出账进度',
@@ -144,10 +139,10 @@
             ]
           };
           bmapCharts.setOption(option);
-          bmapCharts.on('mouseover', function (params) {
-              var dataIndex = params.dataIndex;
-              console.log(params);
-          });
+          // bmapCharts.on('mouseover', function (params) {
+          //     var dataIndex = params.dataIndex;
+          //     console.log(params);
+          // });
       });
 
     }
@@ -211,8 +206,28 @@
       }, 10);
     }
     $(document).ready(function(){
-      mapShow();
-      wangJMapShow();
+      // wangJ
+      var jsonName = "wangJProv.json";
+      var mapId = "wangJBillScheduleMap";
+      var titleName = "网间业务";
+      var nowSplitList = [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 10, end: 10, label: '出账完成', color: g_state_color[10]}
+                ];
+      mapShow(jsonName, mapId, titleName, nowSplitList);
+      // zengZh
+      jsonName = "zengZhProv.json";
+      mapId = "zengZhBillScheduleMap";
+      titleName = "增值业务";
+      nowSplitList = [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 10, end: 10, label: '出账完成，数据已上报PRM', color: g_state_color[10]}
+                ];
+      mapShow(jsonName, mapId, titleName, nowSplitList);
+      
+      // wangJMapShow();
     });
   </script>
   </body>
