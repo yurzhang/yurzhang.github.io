@@ -120,7 +120,7 @@
                             }
                         },
                         emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
-                            label:{show:true}
+                            label:{show:false}
                         }
                     },
                     top:"3%",//组件距离容器的距离
@@ -129,10 +129,10 @@
             ]
           };
           bmapCharts.setOption(option);
-          bmapCharts.on('mouseover', function (params) {
-              var dataIndex = params.dataIndex;
-              console.log(params);
-          });
+          // bmapCharts.on('mouseover', function (params) {
+          //     var dataIndex = params.dataIndex;
+          //     console.log(params);
+          // });
       });
 
     }
