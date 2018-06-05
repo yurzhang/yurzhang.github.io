@@ -8,5 +8,6 @@ var g_state_color = [
 "#FFFF00",
 "#FFFF00",
 "#FFFF00",
+"#FFFF00",
 "#FF0000"
 ];

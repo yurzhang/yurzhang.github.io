@@ -44,11 +44,10 @@
                 value: info.value
               });
               provDateSettings.push({
-                name: info.name,
-                itemStyle:{
-                  areaColor: g_state_color[info.state],
-                  color: g_state_color[info.state]
-                }
+                start: info.value,
+                end: info.value,
+                label: info.name,
+                color: g_state_color[info.state]
               });
           });
       });
@@ -70,12 +69,13 @@
 
         visualMap: {//颜色的设置  dataRange
             x: 'left',
-            y: 'center',
-            splitList: [
-                {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-                {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-                {start: 2, end: 2, label: '出账完成，数据上报PRM', color: g_state_color[9]}
-            ],
+            y: 'bottom',
+            splitList: provDateSettings
+            // splitList: [
+            //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+            //     {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+            //     {start: 2, end: 2, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+            // ],
             // text:['高','低'],// 文本，默认为数值文本
         },
         toolbox: {//工具栏
@@ -97,30 +97,30 @@
                 'china': true
             }
         },
-        geo: {
-            map: 'china',
-            top: 0,
-            bottom: 0,
-            regions: provDateSettings   // 设置单独的样式。
-        },
+        // geo: {
+        //     map: 'china',
+        //     top: 0,
+        //     bottom: 0,
+        //     regions: provDateSettings   // 设置单独的样式。
+        // },
         series : [
             {
                 name: '出账进度',
                 type: 'map',
-                // roam: false,//是否开启鼠标缩放和平移漫游
-                // itemStyle:{//地图区域的多边形 图形样式
-                //     normal:{//是图形在默认状态下的样式
-                //         label:{
-                //             show:true,//是否显示标签
-                //             textStyle: {
-                //                 color: "rgb(249, 249, 249)"
-                //             }
-                //         }
-                //     },
-                //     emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
-                //         label:{show:true}
-                //     }
-                // },
+                roam: false,//是否开启鼠标缩放和平移漫游
+                itemStyle:{//地图区域的多边形 图形样式
+                    normal:{//是图形在默认状态下的样式
+                        label:{
+                            show:true,//是否显示标签
+                            textStyle: {
+                                color: "rgb(29, 29, 29)"
+                            }
+                        }
+                    },
+                    emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                        label:{show:true}
+                    }
+                },
                 top:"3%",//组件距离容器的距离
                 data:provDate
             }
