@@ -66,10 +66,11 @@
                 }
             },
             tooltip : {//提示框组件。
-                show: false,
+                show: false, //取消鼠标悬浮提示
                 trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
             },
             legend: {
+                selectedMode:false, // 关闭图例点击
                 orient: 'horizontal',//图例的排列方向
                 x:'left',//图例的位置
                 data:['出账进度']
@@ -118,6 +119,7 @@
                     roam: false,//是否开启鼠标缩放和平移漫游
                     hoverable: false, // 关闭悬浮高亮
                     clickable: false, //关闭悬浮高亮
+                    dataRangeHoverLink: false,//关闭与图例联动高亮
                     itemStyle:{//地图区域的多边形 图形样式
                         normal:{//是图形在默认状态下的样式
                             label:{
