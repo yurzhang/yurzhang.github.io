@@ -37,7 +37,7 @@
       var provDate = new Array();
       var provDateSettings = new Array();
 
-      $.getJSON("./data/zengZhProv.json",function(data){  
+      $.get("./data/zengZhProv.json").done(function(data){  
           $.each(data,function(infoIndex,info){  
               provDate.push({
                 name: info.name,
@@ -120,10 +120,11 @@
                     hoverable: false, // 关闭悬浮高亮
                     clickable: false, //关闭悬浮高亮
                     dataRangeHoverLink: false,//关闭与图例联动高亮
+                    silent: false,//关闭鼠标事件
                     itemStyle:{//地图区域的多边形 图形样式
                         normal:{//是图形在默认状态下的样式
                             label:{
-                                show:false,//是否显示标签
+                                show:true,//是否显示标签
                                 textStyle: {
                                     color: "rgb(29, 29, 29)"
                                 }
@@ -139,10 +140,10 @@
             ]
           };
           bmapCharts.setOption(option);
-          // bmapCharts.on('mouseover', function (params) {
-          //     var dataIndex = params.dataIndex;
-          //     console.log(params);
-          // });
+          bmapCharts.on('mouseover', function (params) {
+              var dataIndex = params.dataIndex;
+              console.log(params);
+          });
       });
 
     }
