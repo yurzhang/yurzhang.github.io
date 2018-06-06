@@ -51,9 +51,10 @@
 
       var provDate = new Array();
       var provDateSettings = new Array();
-
-      $.get("./data/"+jsonName).done(function(data){  
-          $.each(data,function(infoIndex,info){  
+      console.log(jsonName);
+      $.get("./data/"+jsonName).done(function(data){ 
+        console.log("get data");
+          $.each(data,function(infoIndex,info){ 
               provDate.push({
                 name: info.name,
                 value: info.state
