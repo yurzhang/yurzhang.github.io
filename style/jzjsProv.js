@@ -1,5 +1,5 @@
 var g_state_color = [
-"#FFFFFF",
+"#CECAD6",
 "#FCF502",
 "#F09ABD",
 "#FFFF00",

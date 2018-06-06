@@ -57,13 +57,13 @@
           $.each(data,function(infoIndex,info){ 
               provDate.push({
                 name: info.name,
-                value: info.state
+                value: Number(info.state)
               });
               provDateSettings.push({
-                start: info.state,
-                end: info.state,
+                start: Number(info.state),
+                end: Number(info.state),
                 label: info.name,
-                color: g_state_color[info.state]
+                color: g_state_color[Number(info.state)]
               });
           });
       // var map = new BMap.Map("allmap");
