@@ -168,6 +168,10 @@
       });
     }
     $(document).ready(function(){
+      $.ajaxSetup({  
+          async : false  
+      });
+
       //禁止下拉
       dd.ready(function () {
         dd.ui.webViewBounce.disable();
