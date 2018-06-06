@@ -11,8 +11,9 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/extension/bmap.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
+    <!-- 百度地图 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/extension/bmap.js"></script> -->
+    <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script> -->
 
     <!-- 引入钉钉 禁止下拉 -->
     <script type="text/javascript" src="https://g.alicdn.com/dingding/open-develop/1.9.0/dingtalk.js"></script>
@@ -38,7 +39,11 @@
     <br />
     <hr />
     <br />
-    <div id="guoNBillScheduleMap" style="width:100%; height : 750px" ></div>
+    <div id="guoNBillScheduleMap" style="width:100%; height : 750px" ></div>    
+    <br />
+    <hr />
+    <br />
+    <div id="guoJBillScheduleMap" style="width:100%; height : 750px" ></div>
   </div>
 
   <script type="text/javascript">
@@ -197,7 +202,17 @@
                     {start: 10, end: 10, label: '出账完成，数据已上报', color: g_state_color[10]}
                 ];
       mapShow(jsonName, mapId, titleName, nowSplitList);
-      
+      // guoJ
+      jsonName = "guoJProv.json";
+      mapId = "guoJBillScheduleMap";
+      titleName = "国际漫游分摊业务";
+      nowSplitList = [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 2, end: 2, label: '出账完成，数据待确认', color: g_state_color[2]},
+                    {start: 10, end: 10, label: '出账完成，数据已上报', color: g_state_color[10]}
+                ];
+      mapShow(jsonName, mapId, titleName, nowSplitList);
     });
   </script>
   </body>
