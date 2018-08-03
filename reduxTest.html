@@ -68,5 +68,14 @@
           }, 1000)
         })
     </script>
+    <div id="event"></div>
+    <script type="text/javascript">
+        var id = document.getElementById('event');
+        document.addEventListener('mousemove',function(e){
+            id.style.marginLeft = e.clientX + 'px';
+            id.style.marginTop = e.clientY + 'px';
+            id.innerHTML = "(X:" + e.clientX+",Y:"+e.clientY+ ")";
+        });
+    </script>
   </body>
 </html>
