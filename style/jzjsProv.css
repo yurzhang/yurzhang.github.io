@@ -1,12 +1,8 @@
-var g_state_color = [
-"#FFFFFF",
-"#00FF00",
-"#FFFF00",
-"#FFFF00",
-"#FFFF00",
-"#FFFF00",
-"#FFFF00",
-"#FFFF00",
-"#FFFF00",
-"#FF0000"
-];
+.fs-table > tbody > tr > td {
+  text-align: left;
+  font-size : 0.6em;
+}
+.fs-table > tbody > tr > th {
+  text-align: center;
+  font-size : 0.8em;
+}
