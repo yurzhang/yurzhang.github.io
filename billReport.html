@@ -299,25 +299,28 @@
         startY = e.originalEvent.changedTouches[0].pageY;
       });
       　
-      $("body").on("touchmove", function(e) {
+      $("body").on("touchend", function(e) {
         e.preventDefault();
         moveEndX = e.originalEvent.changedTouches[0].pageX,
         moveEndY = e.originalEvent.changedTouches[0].pageY,
         X = moveEndX - startX,
         Y = moveEndY - startY;
 
-        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
-          document.getElementById(g_navigate[(idx += 1) % 4]).scrollIntoView(true);;
-        }
-        else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
-          document.getElementById(g_navigate[(idx -= 1) % 4]).scrollIntoView(true);;
-        }
-        // else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
-        //   alert("top 2 bottom");
+        // if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
         // }
-        // else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
-        //   alert("bottom 2 top");
+        // else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
         // }
+        if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+          idx = (idx - 1 + 4) % 4
+          document.getElementById(g_navigate[idx]).scrollIntoView(true);
+          console.log(idx);
+
+        }
+        else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+          idx = (idx + 1) % 4
+          document.getElementById(g_navigate[idx]).scrollIntoView(true);
+          console.log(idx);
+        }
         else{
           alert("just touch");
         }
