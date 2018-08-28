@@ -110,7 +110,6 @@ function echartsDraw(jsonName, mapId){
             }
         },
         data: {}
-        })
       });
     });
 
