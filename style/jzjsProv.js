@@ -13,6 +13,7 @@ var g_state_color = [
 ];
 
 var g_navigate = [
+    "initRoot",
     "overviewPage",
     "wjjsPage",
     "guoNPage",

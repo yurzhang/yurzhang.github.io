@@ -31,12 +31,12 @@
     <title>集中综合结算出账报告</title>
   </head>
   <body>
-    <div style="width:100%; height : 100%" >
+    <div style="width:100%; height : 100%" id="initRoot">
       <br />
       <div style="font-size:1.3em"><strong>集中综合结算201808账期出账数据分析：</strong></div>
       <br />
       <div id="overviewPage">
-        <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;整体出账概况：</div>
+        <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;<strong>整体出账概况：</strong></div>
         <div>本月出账完成时间为20180903 12:12:12</div>
         <br />
         <table class="table table-condensed fs-table">
@@ -290,6 +290,7 @@
 
       var windowHeight = $(window).height();
       var idx = 0;
+      var idxLen = g_navigate.length;
       bodySelf = $("body");
       bodySelf.css("height", windowHeight); 
 
@@ -311,13 +312,13 @@
         // else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
         // }
         if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
-          idx = (idx - 1 + 4) % 4
+          idx = (idx - 1 + idxLen) % idxLen
           document.getElementById(g_navigate[idx]).scrollIntoView(true);
           console.log(idx);
 
         }
         else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
-          idx = (idx + 1) % 4
+          idx = (idx + 1) % idxLen
           document.getElementById(g_navigate[idx]).scrollIntoView(true);
           console.log(idx);
         }
