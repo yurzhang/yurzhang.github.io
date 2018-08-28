@@ -13,6 +13,9 @@ function echartsDraw(jsonName, mapId){
 
     console.log(provDate);
     var provDateOrderd = Object.keys(provDate).sort(function(a, b){return provDate[a] - provDate[b]});
+    for(ki in provDateOrderd){                     
+      document.writeln(provDateOrderd[ki]+":"+provDateOrderd[sdic[ki]]+",");
+    }
     console.log(provDateOrderd);
 
     console.log(".....................................................");
