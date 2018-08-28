@@ -14,7 +14,7 @@ function echartsDraw(jsonName, mapId){
     console.log(provDate);
     function sortByValue(a, b){
       console.log(a);
-      return a.value - b.value;
+      return b.value - a.value;
     }
     // var provDateOrderd = Object.keys(provDate).sort(function(a, b){return provDate[a] - provDate[b]});
     var provDateOrderd = provDate.sort(sortByValue);
