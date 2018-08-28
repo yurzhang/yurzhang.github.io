@@ -91,14 +91,17 @@
       <div id="guoNPage">
         <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;<strong>国内漫游业务：</strong></div>
         <div>省间漫入、漫出Top10：</div>
-        <img style="width: 100%" src="https://upload-images.jianshu.io/upload_images/6101555-042d1676c43746e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" />
+        <!-- <img style="width: 100%" src="https://upload-images.jianshu.io/upload_images/6101555-042d1676c43746e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" />
+         -->
+        <div id="guoNPageMap" style="width:100%; height : 430px" ></div>
       </div>
       <br />
 
       <div id="guoJPage">
         <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;<strong>国际漫游业务：</strong></div>
         <div>国际结算漫入、漫出Top10：</div>
-        <img style="width: 100%" src="https://upload-images.jianshu.io/upload_images/6101555-042d1676c43746e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" />
+<!--         <img style="width: 100%" src="https://upload-images.jianshu.io/upload_images/6101555-042d1676c43746e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /> -->
+        <div id="guoJPageMap" style="width:100%; height : 430px" ></div>
       </div>
 
 <!--       <div id="zengZhPage">
@@ -108,6 +111,182 @@
       </div> -->
 
     </div>
+      <script type="text/javascript">
+    function mapShow(jsonName, mapId, titleName, nowSplitList){
+
+      var provDate = new Array();
+      var provDateSettings = new Array();
+      console.log(jsonName);
+      $.get("./data/"+jsonName).done(function(data){ 
+        console.log("get data");
+          $.each(data,function(infoIndex,info){ 
+              provDate.push({
+                name: info.name,
+                value: Number(info.state)
+              });
+              provDateSettings.push({
+                start: Number(info.state),
+                end: Number(info.state),
+                label: info.name,
+                color: g_state_color[Number(info.state)]
+              });
+          });
+      // var map = new BMap.Map("allmap");
+
+          console.log(provDate);
+
+          var bmapCharts = echarts.init(document.getElementById(mapId));
+          var option = {
+            title : {
+                text: titleName,
+                x:'center',
+                textStyle: {
+                  fontSize: 36,
+                  fontWeight: 'bolder',
+                  color: '#000'
+                }
+            },
+            tooltip : {//提示框组件。
+                show: false, //取消鼠标悬浮提示
+                trigger: 'item'//数据项图形触发，主要在散点图，饼图等无类目轴的图表中使用。
+            },
+            legend: {
+                selectedMode:false, // 关闭图例点击
+                show: false,
+                orient: 'horizontal',//图例的排列方向
+                x:'left',//图例的位置
+                data:['出账进度'],
+                textStyle :{
+                  fontSize: 26,
+                  color: '#333'
+                },
+            },
+
+            visualMap: {//颜色的设置  dataRange
+                x: 'left',
+                y: 'bottom',
+                splitList : nowSplitList,
+                hoverLink : false,
+                textStyle :{
+                  fontSize: 26,
+                  color: '#333'
+                },
+                // splitList: [
+                //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                //     {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+                // ]
+                // text:['高','低'],// 文本，默认为数值文本
+            },
+            toolbox: {//工具栏
+                show: true,
+                orient : 'vertical',//工具栏 icon 的布局朝向
+                x: 'right',
+                y: 'center',
+                feature : {//各工具配置项。
+                    mark : {show: true},
+                    dataView : {show: false, readOnly: false},//数据视图工具，可以展现当前图表所用的数据，编辑后可以动态更新。
+                    restore : {show: false},//配置项还原。
+                    saveAsImage : {show: true}//保存为图片。
+                }
+            },
+            roamController: {//控制地图的上下左右放大缩小 图上没有显示
+                show: true,
+                x: 'right',
+                mapTypeControl: {
+                    'china': true
+                }
+            },
+            series : [
+                {
+                    name: '出账进度',
+                    type: 'map',
+                    mapType: 'china',
+                    zoom: 1.23, //地图缩放比例
+                    roam: false,//是否开启鼠标缩放和平移漫游
+                    hoverable: false, // 关闭悬浮高亮
+                    clickable: false, //关闭悬浮高亮
+                    dataRangeHoverLink: false,//关闭与图例联动高亮
+                    silent: true,//关闭鼠标事件
+                    itemStyle:{//地图区域的多边形 图形样式
+                        normal:{//是图形在默认状态下的样式
+                            label:{
+                                show:true,//是否显示标签
+                                textStyle: {
+                                    color: "rgb(29, 29, 29)"
+                                }
+                            }
+                        },
+                        // emphasis:{//是图形在高亮状态下的样式,比如在鼠标悬浮或者图例联动高亮时
+                        //     label:{show:false}
+                        // }
+                    },
+                    top:"10%",//组件距离容器的距离
+                    data:provDate
+                }
+            ]
+          };
+          bmapCharts.setOption(option);
+          // bmapCharts.on('mouseover', function (params) {
+          //     var dataIndex = params.dataIndex;
+          //     console.log(params);
+          // });
+      });
+    }
+    $(document).ready(function(){
+      // alert("alert");
+      $.ajaxSetup({  
+          async : false  
+      });
+
+      //禁止下拉
+      dd.ready(function () {
+        dd.ui.webViewBounce.disable();
+      });
+      // wangJ
+      var jsonName = "wangJProv.json";
+      var mapId = "guoNPageMap";
+      var titleName = "";
+      var nowSplitList = [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 10, end: 10, label: '出账完成', color: g_state_color[10]}
+                ];
+      mapShow(jsonName, mapId, titleName, nowSplitList);
+      // zengZh
+      jsonName = "zengZhProv.json";
+      mapId = "guoJPageMap";
+      titleName = "";
+      nowSplitList = [
+                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+                    {start: 10, end: 10, label: '出账完成，数据已上报PRM', color: g_state_color[10]}
+                ];
+      mapShow(jsonName, mapId, titleName, nowSplitList);
+      // guoN
+      // jsonName = "guoNProv.json";
+      // mapId = "guoNBillScheduleMap";
+      // titleName = "国内漫游业务";
+      // nowSplitList = [
+      //               {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+      //               {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+      //               {start: 2, end: 2, label: '出账完成，数据待确认', color: g_state_color[2]},
+      //               {start: 10, end: 10, label: '出账完成，数据已上报', color: g_state_color[10]}
+      //           ];
+      // mapShow(jsonName, mapId, titleName, nowSplitList);
+      // // guoJ
+      // jsonName = "guoJProv.json";
+      // mapId = "guoJBillScheduleMap";
+      // titleName = "国际漫游分摊业务";
+      // nowSplitList = [
+      //               {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+      //               {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+      //               {start: 2, end: 2, label: '出账完成，数据待确认', color: g_state_color[2]},
+      //               {start: 10, end: 10, label: '出账完成，数据已上报', color: g_state_color[10]}
+      //           ];
+      // mapShow(jsonName, mapId, titleName, nowSplitList);
+    });
+    </script>
   </body>
 </html>
 <!-- 
