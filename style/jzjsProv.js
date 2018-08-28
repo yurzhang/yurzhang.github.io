@@ -11,3 +11,10 @@ var g_state_color = [
 "#FFFF00",
 "#01933F"
 ];
+
+var g_navigate = [
+    "overviewPage",
+    "wjjsPage",
+    "guoNPage",
+    "guoJPage"
+];
