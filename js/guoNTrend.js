@@ -109,11 +109,7 @@ function echartsDraw(jsonName, mapId){
                 color: g_state_color[0]
             }
         },
-        data: item[1].map(function (dataItem) {
-            return {
-                name: dataItem[1].name,
-                value: "省分："+dataItem[1].name+"流量："+dataItem[1].value
-            };
+        data: {}
         })
       });
     });
