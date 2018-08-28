@@ -12,8 +12,12 @@ function echartsDraw(jsonName, mapId){
     });
 
     console.log(provDate);
+    function sortByValue(a, b){
+      console.log(a);
+      return a.value - b.value;
+    }
     // var provDateOrderd = Object.keys(provDate).sort(function(a, b){return provDate[a] - provDate[b]});
-    var provDateOrderd = provDate.sort(function(a, b){return provDate[a] - provDate[b]});
+    var provDateOrderd = provDate.sort(sortByValue);
 
     // for(ki in provDateOrderd){                     
     //   document.writeln(provDateOrderd[ki]+":"+provDate[provDateOrderd[ki]]+",");
