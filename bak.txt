@@ -1,3 +1,22 @@
+    //map 颜色修改
+    let provColor = {
+      name: 'provColor',
+      type: 'map',
+      data: provLegendData
+    };
+
+    series.push(
+      {
+          name: 'mapContentX',
+          type: 'map',
+          geoIndex: 0,
+          // tooltip: {show: false},
+          data:provLegendData
+      }
+    );
+
+
+
 <!DOCTYPE html>
 <html>
   <head>

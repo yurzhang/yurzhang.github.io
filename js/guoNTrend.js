@@ -1,6 +1,9 @@
 function echartsDraw(jsonName, mapId){
   var provDate = new Array();
   var provDateSettings = new Array();
+
+  var provListTop10 = new Set();
+
   console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
     console.log("get data 23333");
@@ -15,6 +18,12 @@ function echartsDraw(jsonName, mapId){
     console.log(provDate);
 
     var provchargedUnitsTop10 = provDate.slice(0, 10);
+
+    provchargedUnitsTop10.forEach(function (item, i) {
+      console.log(item.roamAndMsi);
+    });
+
+    console.log("............");
 
     var convertData = function (data) {
       var res = [];
