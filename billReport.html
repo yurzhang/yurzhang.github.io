@@ -24,11 +24,12 @@
     <script type="text/javascript" src="https://g.alicdn.com/dingding/open-develop/1.9.0/dingtalk.js"></script>
     
     <script type="text/javascript" src="./map/js/china.js"></script>
+    <script type="text/javascript" src="./map/js/world.js"></script>
+
     <script type="text/javascript" src="./style/jzjsProv.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./style/jzjsProv.css">
  
-
     <title>集中综合结算出账报告</title>
   </head>
   <body>
@@ -112,7 +113,9 @@
       </div> -->
 
     </div>
+
     <script type="text/javascript" src="./js/guoNTrend.js"></script>
+    <script type="text/javascript" src="./js/guoJTrend.js"></script>
     
     <script type="text/javascript">
     function mapShow(jsonName, mapId, titleName, nowSplitList){
@@ -250,6 +253,7 @@
 
       // 改为单个js引入
       echartsDraw("guoNProvTrend.json", "guoNPageMap");
+      guoJEchartsDraw("guoJProvTrend.json", "guoJPageMap");
 
       // wangJ
       // var jsonName = "wangJProv.json";
@@ -262,15 +266,15 @@
       //           ];
       // mapShow(jsonName, mapId, titleName, nowSplitList);
       // zengZh
-      jsonName = "zengZhProv.json";
-      mapId = "guoJPageMap";
-      titleName = "";
-      nowSplitList = [
-                    {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-                    {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-                    {start: 10, end: 10, label: '出账完成，数据已上报PRM', color: g_state_color[10]}
-                ];
-      mapShow(jsonName, mapId, titleName, nowSplitList);
+      // jsonName = "zengZhProv.json";
+      // mapId = "guoJPageMap";
+      // titleName = "";
+      // nowSplitList = [
+      //               {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
+      //               {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
+      //               {start: 10, end: 10, label: '出账完成，数据已上报PRM', color: g_state_color[10]}
+      //           ];
+      // mapShow(jsonName, mapId, titleName, nowSplitList);
       // guoN
       // jsonName = "guoNProv.json";
       // mapId = "guoNBillScheduleMap";
