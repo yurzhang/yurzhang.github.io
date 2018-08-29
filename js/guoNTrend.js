@@ -30,12 +30,12 @@ function echartsDraw(jsonName, mapId){
       for (var i = 0; i < data.length; i++) {
         var dataItem = data[i];
         var roamAndMsi = dataItem.roamAndMsi.split(',');
-        var fromCoord = geoCoordMap[g_prov_code[roamAndMsi[1]]];
-        var toCoord = geoCoordMap[g_prov_code[roamAndMsi[0]]];
+        var fromCoord = geoCoordMap[gProvCode[roamAndMsi[1]]];
+        var toCoord = geoCoordMap[gProvCode[roamAndMsi[0]]];
         if (fromCoord && toCoord) {
           res.push({
-            fromName: g_prov_code[roamAndMsi[1]],
-            toName: g_prov_code[roamAndMsi[0]],
+            fromName: gProvCode[roamAndMsi[1]],
+            toName: gProvCode[roamAndMsi[0]],
             coords: [fromCoord, toCoord],
             unitsValue: Math.ceil(parseInt(dataItem.value)/1024/1024),
             sortIdx: i+1,
@@ -62,7 +62,7 @@ function echartsDraw(jsonName, mapId){
         lineStyle: {
             normal: {
                 type: 'solid',
-                color: g_state_color[0],
+                color: gStateColor[0],
                 // width: Math.ceil((10-parseInt(item[0])+1)/3),
                 width: 2,
                 curveness: 0.2
@@ -87,7 +87,7 @@ function echartsDraw(jsonName, mapId){
         lineStyle: {
             type: 'solid',
             normal: {
-                color: g_state_color[0],
+                color: gStateColor[0],
                 width: 1,
                 opacity: 0.6,
                 curveness: 0.2
@@ -115,7 +115,7 @@ function echartsDraw(jsonName, mapId){
         },
         itemStyle: {
             normal: {
-                color: g_state_color[0]
+                color: gStateColor[0]
             }
         },
         data: {}
@@ -126,7 +126,7 @@ function echartsDraw(jsonName, mapId){
     var provLegendData = new Array();
     provSetTop10.forEach(function(item, i) {
       console.log(item+ " aaaa " +i);
-      provLegendData[i] = {name: g_prov_code[item], value: 1};
+      provLegendData[i] = {name: gProvCode[item], value: 1};
     })
     series.push(
       {
@@ -145,8 +145,8 @@ function echartsDraw(jsonName, mapId){
     console.log("initail map ok");
 
     var nowSplitList = [
-      {start: 0, end: 0, label: 'Top10', color: g_state_color[0]},
-      {start: 1, end: 1, label: 'Top10', color: g_state_color[1]}
+      {start: 0, end: 0, label: 'Top10', color: gStateColor[0]},
+      {start: 1, end: 1, label: 'Top10', color: gStateColor[1]}
     ];
     let option = {
       backgroundColor: '#fff',
@@ -187,13 +187,13 @@ function echartsDraw(jsonName, mapId){
           splitList : nowSplitList,
           hoverLink : false,
           textStyle :{
-            fontSize: 10,
-            color: '#FFF'
+            fontSize: 26,
+            color: '#333'
           },
           // splitList: [
-          //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
-          //     {start: 1, end: 1, label: '出账中', color: g_state_color[1]},
-          //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: g_state_color[10]}
+          //     {start: 0, end: 0, label: '未出账', color: gStateColor[0]},
+          //     {start: 1, end: 1, label: '出账中', color: gStateColor[1]},
+          //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: gStateColor[10]}
           // ]
           // text:['高','低'],// 文本，默认为数值文本
       },
