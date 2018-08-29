@@ -134,7 +134,7 @@ function echartsDraw(jsonName, mapId){
           type: 'map',
           geoIndex: 0,
           // tooltip: {show: false},
-          data:provLegendData
+          data: provLegendData
       }
     );
     console.log(".....................................................");
@@ -208,7 +208,8 @@ function echartsDraw(jsonName, mapId){
               emphasis: {
                   show: false
                   // show: true
-              }
+              },
+              fontSize: 10,
           },
           roam: false,
       },
