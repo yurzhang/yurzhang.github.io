@@ -1,28 +1,28 @@
 function guoJEchartsDraw(jsonName, mapId){
-  var provDate = new Array();
-  var provDateSettings = new Array();
+  var nationDate = new Array();
+  var nationDateSettings = new Array();
 
-  var provSetTop10 = new Set();
+  var nationSetTop10 = new Set();
 
   console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
     console.log("get data guoj");
     $.each(data, function(infoIndex,info){ 
-        provDate.push({
+        nationDate.push({
           roamAndMsi: info.roam+','+info.msi,
           value: Number(info.value)
         });
     });
 
-    provDate.sort(function(a, b){return b.value - a.value});
-    console.log(provDate);
+    nationDate.sort(function(a, b){return b.value - a.value});
+    console.log(nationDate);
 
-    var provchargedUnitsTop10 = provDate.slice(0, 10);
+    var nationchargedUnitsTop10 = nationDate.slice(0, 10);
 
-    provchargedUnitsTop10.forEach(function (item, i) {
+    nationchargedUnitsTop10.forEach(function (item, i) {
       var roamAndMsi = item.roamAndMsi.split(',');
-      provSetTop10.add(roamAndMsi[0]);
-      provSetTop10.add(roamAndMsi[1]);
+      nationSetTop10.add(roamAndMsi[0]);
+      nationSetTop10.add(roamAndMsi[1]);
     });
 
     var convertData = function (data) {
@@ -46,6 +46,25 @@ function guoJEchartsDraw(jsonName, mapId){
       return res;
     };
 
+    var worldNameShowData = new Array();
+    // 处理点显示
+    nationSetTop10.forEach(function(item, i) {
+      worldNameShowData.push({        // 选中的区域
+        name: gWorldName[item],
+        // selected: true,
+        itemStyle: {   // 高亮时候的样式
+          emphasis: {
+              show: true,
+              areaColor: gStateColor[1]
+          }
+        }
+        // label: {
+        //     emphasis: {
+        //        // show: false
+        //    }
+        // }
+      });
+    });
     var worldNameShowData = [{        // 选中的区域
               name: 'China',
               selected: true,
@@ -79,7 +98,7 @@ function guoJEchartsDraw(jsonName, mapId){
             ];
 
     var series = [];
-      [['10', provchargedUnitsTop10]].forEach(function (item, i) {
+      [['10', nationchargedUnitsTop10]].forEach(function (item, i) {
       series.push({
         name: 'Top'+item[0],
         type: 'lines',
@@ -156,7 +175,7 @@ function guoJEchartsDraw(jsonName, mapId){
 
     // 地图省分着色
     var worldLegendData = new Array();
-    provSetTop10.forEach(function(item, i) {
+    nationSetTop10.forEach(function(item, i) {
       console.log(item+ " aaaa " +i);
       worldLegendData[i] = {name: gWorldCode[item], value: 1};
     })
@@ -195,7 +214,7 @@ function guoJEchartsDraw(jsonName, mapId){
           formatter: function (v) {
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
-              return allProvUnits[v.name];
+              return allnationUnits[v.name];
             }
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"SDR";
