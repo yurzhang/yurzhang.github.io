@@ -209,7 +209,7 @@ function echartsDraw(jsonName, mapId){
                   show: false
                   // show: true
               },
-              fontSize: 10,
+              fontSize: 2,
           },
           roam: false,
       },
