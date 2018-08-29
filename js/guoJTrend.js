@@ -49,6 +49,9 @@ function guoJEchartsDraw(jsonName, mapId){
     var worldNameShowData = new Array();
     // 处理点显示
     nationSetTop10.forEach(function(item, i) {
+      console.log(item);
+      console.log(gWorldName[item]);
+      console.log("..........");
       worldNameShowData.push({        // 选中的区域
         name: gWorldName[item],
         // selected: true,
