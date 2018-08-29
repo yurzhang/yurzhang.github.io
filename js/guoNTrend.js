@@ -187,8 +187,8 @@ function echartsDraw(jsonName, mapId){
           splitList : nowSplitList,
           hoverLink : false,
           textStyle :{
-            fontSize: 26,
-            color: '#333'
+            fontSize: 10,
+            color: '#FFF'
           },
           // splitList: [
           //     {start: 0, end: 0, label: '未出账', color: g_state_color[0]},
@@ -208,8 +208,7 @@ function echartsDraw(jsonName, mapId){
               emphasis: {
                   show: false
                   // show: true
-              },
-              fontSize: 2,
+              }
           },
           roam: false,
       },
