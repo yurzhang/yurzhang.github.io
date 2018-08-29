@@ -2,7 +2,7 @@ function echartsDraw(jsonName, mapId){
   var provDate = new Array();
   var provDateSettings = new Array();
 
-  var provListTop10 = new Set();
+  var provSetTop10 = new Set();
 
   console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
@@ -21,8 +21,12 @@ function echartsDraw(jsonName, mapId){
 
     provchargedUnitsTop10.forEach(function (item, i) {
       console.log(item.roamAndMsi);
+      var roamAndMsi = item.roamAndMsi.split(',');
+      provSetTop10.add(roamAndMsi[0]);
+      provSetTop10.add(roamAndMsi[1]);
     });
 
+    console.log(provSetTop10);
     console.log("............");
 
     var convertData = function (data) {
