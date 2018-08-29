@@ -191,12 +191,6 @@ function echartsDraw(jsonName, mapId){
             fontSize: 26,
             color: '#333'
           },
-          // splitList: [
-          //     {start: 0, end: 0, label: '未出账', color: gStateColor[0]},
-          //     {start: 1, end: 1, label: '出账中', color: gStateColor[1]},
-          //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: gStateColor[10]}
-          // ]
-          // text:['高','低'],// 文本，默认为数值文本
       },
       
       geo: {
