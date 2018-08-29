@@ -125,7 +125,7 @@ function echartsDraw(jsonName, mapId){
     // 地图省分着色
     var provLegendData = new Array();
     provSetTop10.forEach(function(item, i) {
-      console.log(item+ " " +i);
+      console.log(item+ " aaaa " +i);
       provLegendData[i] = {name: g_prov_code[item], value: 1};
     })
     series.push(
