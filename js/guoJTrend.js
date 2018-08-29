@@ -46,6 +46,30 @@ function guoJEchartsDraw(jsonName, mapId){
       return res;
     };
 
+    var convertData2= function (data) {
+      var res = [];
+      console.log( data.length);
+      for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var roamAndMsi = dataItem.roamAndMsi.split(',');
+        var fromCoord = gWorldLatlong[gWorldCode[roamAndMsi[1]]];
+        var toCoord = gWorldLatlong[gWorldCode[roamAndMsi[0]]];
+        //console.log( toCoord);
+        if (fromCoord && toCoord) {
+          res.push({
+            name: dataItem[1].name,
+            value: latlong[dataItem[1].name],  // 起点的位置
+            fromName: dataItem[0].name,
+            toName: dataItem[1].name,
+            unitsValue: Math.ceil(parseInt(dataItem[1].value)),
+            sortIdx: i+1,
+            symbolSize: 5,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
+         });
+        }
+      }
+      return res;
+    };
+
     var worldNameShowData = new Array();
     // 处理点显示
     nationSetTop10.forEach(function(item, i) {
@@ -58,19 +82,13 @@ function guoJEchartsDraw(jsonName, mapId){
           }
         },
         label: {
-              normal:{//是图形在默认状态下的样式
-                  show : true
-              },
-              emphasis: {
-                  show: false
-                  // show: true
-              }
+            normal:{//是图形在默认状态下的样式
+              show : true
+            },
+            emphasis: {
+              show: false
+            }
           },
-        // label: {
-        //     emphasis: {
-        //        // show: false
-        //    }
-        // }
       });
     });
 
@@ -219,12 +237,6 @@ function guoJEchartsDraw(jsonName, mapId){
             fontSize: 26,
             color: '#333'
           },
-          // splitList: [
-          //     {start: 0, end: 0, label: '未出账', color: gStateColor[0]},
-          //     {start: 1, end: 1, label: '出账中', color: gStateColor[1]},
-          //     {start: 10, end: 10, label: '出账完成，数据上报PRM', color: gStateColor[10]}
-          // ]
-          // text:['高','低'],// 文本，默认为数值文本
       },
       
       geo: {
