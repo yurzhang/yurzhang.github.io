@@ -20,14 +20,10 @@ function echartsDraw(jsonName, mapId){
     var provchargedUnitsTop10 = provDate.slice(0, 10);
 
     provchargedUnitsTop10.forEach(function (item, i) {
-      console.log(item.roamAndMsi);
       var roamAndMsi = item.roamAndMsi.split(',');
       provSetTop10.add(roamAndMsi[0]);
       provSetTop10.add(roamAndMsi[1]);
     });
-
-    console.log(provSetTop10);
-    console.log("............");
 
     var convertData = function (data) {
       var res = [];
@@ -126,7 +122,21 @@ function echartsDraw(jsonName, mapId){
       });
     });
 
-
+    // 地图省分着色
+    var provLegendData = new Array();
+    provSetTop10.forEach(function(item, i) {
+      console.log(item+ " " +i);
+      provLegendData[i] = {name: g_prov_code[item], value: 1};
+    })
+    series.push(
+      {
+          name: 'mapContentX',
+          type: 'map',
+          geoIndex: 0,
+          // tooltip: {show: false},
+          data:provLegendData
+      }
+    );
     console.log(".....................................................");
     // echarts.registerMap('china', data);
     var bmapCharts = echarts.init(document.getElementById(mapId));
