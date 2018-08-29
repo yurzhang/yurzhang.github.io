@@ -12,4 +12,6 @@
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(Rotation=1);
+  width: 1000px;
+  height: 100%;
 }
