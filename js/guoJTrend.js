@@ -56,7 +56,9 @@ function guoJEchartsDraw(jsonName, mapId){
         name: gWorldName[item],
         // selected: true,
         itemStyle: {   // 高亮时候的样式
-          areaColor: gStateColor[1]
+          normal: {
+            areaColor: gStateColor[1]
+          }
         }
         label: {
               normal:{//是图形在默认状态下的样式
