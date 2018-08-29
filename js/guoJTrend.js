@@ -55,16 +55,12 @@ function guoJEchartsDraw(jsonName, mapId){
       worldNameShowData.push({        // 选中的区域
         name: gWorldName[item],
         // selected: true,
-        // itemStyle: {   // 高亮时候的样式
-        //   emphasis: {
-        //       show: true,
-              
-        //   }
-        // }
+        itemStyle: {   // 高亮时候的样式
+          areaColor: gStateColor[1]
+        }
         label: {
               normal:{//是图形在默认状态下的样式
-                  show : true,
-                  areaColor: gStateColor[1]
+                  show : true
               },
               emphasis: {
                   show: false
