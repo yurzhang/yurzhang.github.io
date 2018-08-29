@@ -46,6 +46,38 @@ function guoJEchartsDraw(jsonName, mapId){
       return res;
     };
 
+    var worldNameShowData = [{        // 选中的区域
+              name: 'China',
+              selected: true,
+              itemStyle: {   // 高亮时候的样式
+                emphasis: {
+                    areaColor: '#7d7d7d'
+                }
+              },
+             label: {
+                  emphasis: {
+                     // show: false
+                      show: true
+                 }
+              }
+            },
+            {        // 选中的区域
+              name: 'United States',
+              selected: true,
+              itemStyle: {   // 高亮时候的样式
+                emphasis: {
+                    areaColor: '#7d7d7d'
+                }
+              },
+             label: {
+                  emphasis: {
+                     // show: false
+                      show: true
+                 }
+              }
+            },
+            ];
+
     var series = [];
       [['10', provchargedUnitsTop10]].forEach(function (item, i) {
       series.push({
@@ -212,6 +244,9 @@ function guoJEchartsDraw(jsonName, mapId){
               }
           },
           roam: false,
+
+          regions: worldNameShowData,
+
           itemStyle: {
             areaColor: '#fff',
           }
