@@ -212,6 +212,9 @@ function echartsDraw(jsonName, mapId){
               }
           },
           roam: false,
+          itemStyle: {
+            areaColor: '#fff',
+          }
       },
       series: series
     };
