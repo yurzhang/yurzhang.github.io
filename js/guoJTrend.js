@@ -65,37 +65,37 @@ function guoJEchartsDraw(jsonName, mapId){
         // }
       });
     });
-    var worldNameShowData = [{        // 选中的区域
-              name: 'China',
-              selected: true,
-              itemStyle: {   // 高亮时候的样式
-                emphasis: {
-                    areaColor: '#7d7d7d'
-                }
-              },
-             label: {
-                  emphasis: {
-                     // show: false
-                      show: true
-                 }
-              }
-            },
-            {        // 选中的区域
-              name: 'United States',
-              selected: true,
-              itemStyle: {   // 高亮时候的样式
-                emphasis: {
-                    areaColor: '#7d7d7d'
-                }
-              },
-             label: {
-                  emphasis: {
-                     // show: false
-                      show: true
-                 }
-              }
-            },
-            ];
+    // var worldNameShowData = [{        // 选中的区域
+    //           name: 'China',
+    //           selected: true,
+    //           itemStyle: {   // 高亮时候的样式
+    //             emphasis: {
+    //                 areaColor: '#7d7d7d'
+    //             }
+    //           },
+    //          label: {
+    //               emphasis: {
+    //                  // show: false
+    //                   show: true
+    //              }
+    //           }
+    //         },
+    //         {        // 选中的区域
+    //           name: 'United States',
+    //           selected: true,
+    //           itemStyle: {   // 高亮时候的样式
+    //             emphasis: {
+    //                 areaColor: '#7d7d7d'
+    //             }
+    //           },
+    //          label: {
+    //               emphasis: {
+    //                  // show: false
+    //                   show: true
+    //              }
+    //           }
+    //         },
+    //         ];
 
     var series = [];
       [['10', nationchargedUnitsTop10]].forEach(function (item, i) {
