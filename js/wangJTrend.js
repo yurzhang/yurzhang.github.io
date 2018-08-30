@@ -32,11 +32,6 @@ function wangJEchartsDraw(mapId){
         xAxis: {
             type : 'value',
             position: 'top',
-            // min:-5000000,
-            // max:25000000,
-            axisLabel: {
-                interval: 2
-            },
             splitLine: {lineStyle:{type:'dashed'}},
         },
         yAxis: {
@@ -49,7 +44,7 @@ function wangJEchartsDraw(mapId){
         },
         series : [
             {
-                name:'网间结算费：',
+                name:'净收入',
                 type:'bar',
                 stack: '总量',
                 itemStyle: {  
@@ -66,37 +61,37 @@ function wangJEchartsDraw(mapId){
                     }
                 },
                 data:[                                             
-                    {value: -181.968546 , label: labelRight}, 
-                    {value: -120.289274 , label: labelRight}, 
-                    {value: -71.50613   , label: labelRight}, 
-                    {value: -64.650537  , label: labelRight}, 
-                    {value: -49.4464    , label: labelRight}, 
-                    {value: -46.570478  , label: labelRight}, 
-                    {value: -36.101148  , label: labelRight}, 
-                    {value: -0.814853   , label: labelRight}, 
-                    {value: 28.172493   , label: labelRight}, 
-                    {value: 72.827695   , label: labelRight}, 
-                    {value: 75.07022    , label: labelRight}, 
-                    {value: 86.662627   , label: labelRight}, 
-                    {value: 120.200252  , label: labelRight}, 
-                    {value: 132.622057  , label: labelRight}, 
-                    {value: 150.120375  , label: labelRight}, 
-                    {value: 151.079317  , label: labelRight}, 
-                    {value: 287.861109  , label: labelRight}, 
-                    {value: 350.073517  , label: labelRight}, 
-                    {value: 351.482946  , label: labelRight}, 
-                    {value: 368.360014  , label: labelRight}, 
-                    {value: 551.90688   , label: labelRight}, 
-                    {value: 558.590251  , label: labelRight}, 
-                    {value: 601.597778  , label: labelRight}, 
-                    {value: 610.354518  , label: labelRight}, 
-                    {value: 612.654076  , label: labelRight}, 
-                    {value: 651.760583  , label: labelRight}, 
-                    {value: 821.40068   , label: labelRight}, 
-                    {value: 1008.476476 , label: labelRight}, 
-                    {value: 1233.938351 , label: labelRight}, 
-                    {value: 1592.246532 , label: labelRight}, 
-                    {value: 2397.629475 , label: labelRight}  
+                    {value: -181.97 , label: labelRight},   
+                    {value: -120.29 , label: labelRight},   
+                    {value: -71.51  , label: labelRight},   
+                    {value: -64.65  , label: labelRight},   
+                    {value: -49.45  , label: labelRight},   
+                    {value: -46.57  , label: labelRight},   
+                    {value: -36.1   , label: labelRight},   
+                    {value: -0.81   , label: labelRight},   
+                    {value: 28.17   , label: labelRight},   
+                    {value: 72.83   , label: labelRight},   
+                    {value: 75.07   , label: labelRight},   
+                    {value: 86.66   , label: labelRight},   
+                    {value: 120.2   , label: labelRight},   
+                    {value: 132.62  , label: labelRight},   
+                    {value: 150.12  , label: labelRight},   
+                    {value: 151.08  , label: labelRight},   
+                    {value: 287.86  , label: labelRight},   
+                    {value: 350.07  , label: labelRight},   
+                    {value: 351.48  , label: labelRight},   
+                    {value: 368.36  , label: labelRight},   
+                    {value: 551.91  , label: labelRight},   
+                    {value: 558.59  , label: labelRight},   
+                    {value: 601.6   , label: labelRight},   
+                    {value: 610.35  , label: labelRight},   
+                    {value: 612.65  , label: labelRight},   
+                    {value: 651.76  , label: labelRight},   
+                    {value: 821.4   , label: labelRight},   
+                    {value: 1008.48 , label: labelRight},   
+                    {value: 1233.94 , label: labelRight},   
+                    {value: 1592.25 , label: labelRight},   
+                    {value: 2397.63 , label: labelRight}    
                 ]     
             }
         ]
@@ -104,7 +99,6 @@ function wangJEchartsDraw(mapId){
     bmapCharts.clear();
     bmapCharts.setOption(option);
 }
-
 
 
 
