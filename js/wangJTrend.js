@@ -112,7 +112,7 @@ function wangJEchartsDraw(jsonName, mapId){
     };
     bmapCharts.clear();
     bmapCharts.setOption(option);
-  }
+  });
 }
 
 

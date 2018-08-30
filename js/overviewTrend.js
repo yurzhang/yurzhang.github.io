@@ -64,5 +64,5 @@ function overviewEchartsDraw(jsonName, mapId){
 
     bmapCharts.clear();
     bmapCharts.setOption(option);
-  }
+  });
 }
