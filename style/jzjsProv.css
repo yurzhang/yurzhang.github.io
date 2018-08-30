@@ -6,10 +6,10 @@
   text-align: center;
   font-size : 0.8em;
 }
-@media(min-width: 100px){
+@media (min-width: 100px){
   .fs-guoj-map {
     width: 800px;
-    heigth: 370px;
+    height: 370px;
   }
   .fs-rotate {
     transform: rotate(90deg);
@@ -24,10 +24,10 @@
     margin-top: -370px;
   }
 }
-@media(min-width: 414px){
+@media (min-width: 414px){
   .fs-guoj-map {
     width: 800px;
-    heigth: 414px;
+    height: 414px;
   }
   .fs-rotate {
     transform: rotate(90deg);
