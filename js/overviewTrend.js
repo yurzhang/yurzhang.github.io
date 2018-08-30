@@ -46,7 +46,7 @@ function overviewEchartsDraw(jsonName, mapId){
                 name: '话单量及占比',
                 type: 'pie',
                 radius : '55%',
-                center: ['50%', '40%'],
+                center: ['50%', '50%'],
                 data:[
                     {value:32788038370, name:'网间'},
                     {value:3183864451, name:'增值'},
@@ -118,7 +118,8 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             data: ['二','三','四','五','六','七','八']
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            show: false
         },
         series: [
             {
