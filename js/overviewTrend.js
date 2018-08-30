@@ -99,6 +99,9 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             trigger: 'axis'
         },
         legend: {
+            textStyle: {
+              fontSize: 10,
+            }
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
         // grid: {
@@ -149,7 +152,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
                 data:[0, 0, 0, 0, 0, 723636143]
             },
             {
-                name:'其他',
+                name:'其它',
                 type:'line',
                 stack: '总量',
                 data:[6569830025, 8483216783, 9412479717, 9609853507, 9609368654, 9518070513]
