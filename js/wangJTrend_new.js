@@ -1,0 +1,107 @@
+function wangJEchartsDraw(mapId){
+
+    var bmapCharts = echarts.init(document.getElementById(mapId));
+    // 初始化地图
+    console.log(mapId);
+    console.log("initail map ok");
+
+    var labelRight = {
+        normal: {
+            position: 'right'
+        }
+    };
+    option = {
+        title: {
+            text: '各省净收入情况单位（万元）',
+            left:'50%',
+            top:'1%',
+            textAlign:'center',
+            // subtext: 'From ExcelHome',
+            sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            top: 80,
+            bottom: 30
+        },
+        xAxis: {
+            type : 'value',
+            position: 'top',
+            // min:-5000000,
+            // max:25000000,
+            axisLabel: {
+                interval: 2
+            },
+            splitLine: {lineStyle:{type:'dashed'}},
+        },
+        yAxis: {
+            type : 'category',
+            axisLine: {show: false},
+            axisLabel: {show: false},
+            axisTick: {show: false},
+            splitLine: {show: false},
+            data : ['江西','云南','四川','广西','浙江','甘肃','福建','西藏','宁夏','海南','贵州','青海','江苏','安徽','陕西','黑龙江','上海','广东','吉林','重庆','内蒙古','新疆','天津','湖北','山西','湖南','辽宁','河北','北京','河南','山东']
+        },
+        series : [
+            {
+                name:'网间结算费：',
+                type:'bar',
+                stack: '总量',
+                itemStyle: {  
+                    normal:{  
+                        color: function (params){
+                            return params.data.value>0?'red':'SteelBlue';
+                        }
+                    }
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: '{b}'
+                    }
+                },
+                data:[                                             
+                    {value: -181.968546 , label: labelRight}, 
+                    {value: -120.289274 , label: labelRight}, 
+                    {value: -71.50613   , label: labelRight}, 
+                    {value: -64.650537  , label: labelRight}, 
+                    {value: -49.4464    , label: labelRight}, 
+                    {value: -46.570478  , label: labelRight}, 
+                    {value: -36.101148  , label: labelRight}, 
+                    {value: -0.814853   , label: labelRight}, 
+                    {value: 28.172493   , label: labelRight}, 
+                    {value: 72.827695   , label: labelRight}, 
+                    {value: 75.07022    , label: labelRight}, 
+                    {value: 86.662627   , label: labelRight}, 
+                    {value: 120.200252  , label: labelRight}, 
+                    {value: 132.622057  , label: labelRight}, 
+                    {value: 150.120375  , label: labelRight}, 
+                    {value: 151.079317  , label: labelRight}, 
+                    {value: 287.861109  , label: labelRight}, 
+                    {value: 350.073517  , label: labelRight}, 
+                    {value: 351.482946  , label: labelRight}, 
+                    {value: 368.360014  , label: labelRight}, 
+                    {value: 551.90688   , label: labelRight}, 
+                    {value: 558.590251  , label: labelRight}, 
+                    {value: 601.597778  , label: labelRight}, 
+                    {value: 610.354518  , label: labelRight}, 
+                    {value: 612.654076  , label: labelRight}, 
+                    {value: 651.760583  , label: labelRight}, 
+                    {value: 821.40068   , label: labelRight}, 
+                    {value: 1008.476476 , label: labelRight}, 
+                    {value: 1233.938351 , label: labelRight}, 
+                    {value: 1592.246532 , label: labelRight}, 
+                    {value: 2397.629475 , label: labelRight}  
+                ]     
+            }
+        ]
+    };
+    bmapCharts.clear();
+    bmapCharts.setOption(option);
+}
+

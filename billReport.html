@@ -127,7 +127,7 @@
       $.ajaxSetup({  
           async : false  
       });
-      alert(window.screen.width);
+      // alert(window.screen.width);
 
       //禁止下拉
       dd.ready(function () {
@@ -135,9 +135,9 @@
       });
 
       // 改为单个js引入
+      wangJEchartsDraw("wangJPageMap");
       echartsDraw("guoNProvTrend.json", "guoNPageMap");
       guoJEchartsDraw("guoJProvTrend.json", "guoJPageMap");
-      wangJEchartsDraw("wangJPageMap");
     });
     </script>
   </body>
