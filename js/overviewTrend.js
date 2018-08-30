@@ -102,6 +102,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             textStyle: {
               fontSize: 10,
             }
+            x : 'left',
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
         // grid: {
