@@ -7,6 +7,16 @@
   font-size : 0.8em;
 }
 @media(min-width: 414px)
+.fs-guoj-map {
+  width: 800px;
+  heigth: 414px;
+}
+@media(min-width: 414px)
+.fs-guoj-map {
+  width: 800px;
+  heigth: 370px;
+}
+@media(min-width: 414px)
 .fs-rotate {
   transform: rotate(90deg);
   -o-transform: rotate(90deg);
@@ -17,7 +27,7 @@
   transform-origin: left bottom;
   /*width: 1000px;*/
   /*height: 100%;*/
-  margin-top: -370px;
+  margin-top: -414px;
 }
 @media(min-width: 100px)
 .fs-rotate {
