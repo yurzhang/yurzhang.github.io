@@ -35,8 +35,10 @@ function overviewEchartsDraw(jsonName, mapId){
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         legend: {
-            orient: 'vertical',
-            left: 'left',
+            // orient: 'vertical',
+            // left: 'left',
+            bottom: 10,
+            left: 'center',
             data: ['网间业务','增值业务','国内漫游业务','国际漫游业务','其它总部业务']
         },
         series : [
