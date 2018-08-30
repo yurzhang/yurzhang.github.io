@@ -151,7 +151,7 @@ function echartsDraw(jsonName, mapId){
     let option = {
       backgroundColor: '#fff',
       title : {
-          text: '省际流量漫入漫出趋势',
+          text: '省际流量漫入漫出Top10',
           // subtext: '数据纯属虚构',
           left: 'center',
           textStyle : {
