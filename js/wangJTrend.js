@@ -1,4 +1,18 @@
-function wangJEchartsDraw(mapId){
+function wangJEchartsDraw(jsonName, mapId){
+  var provDate = new Array();
+  var provDateSettings = new Array();
+
+  var provSetTop10 = new Set();
+
+  console.log(jsonName);
+  $.get("../data/"+jsonName).done(function(data) { 
+    console.log("get data wangj");
+    $.each(data, function(infoIndex, info) { 
+        provDate.push({
+          provId: info.roam+','+info.msi,
+          value: Number(info.value)
+        });
+    });
 
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
@@ -17,7 +31,7 @@ function wangJEchartsDraw(mapId){
             top:'1%',
             textAlign:'center',
             // subtext: 'From ExcelHome',
-            sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'
+            // sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'
         },
         tooltip : {
             trigger: 'axis',
@@ -98,6 +112,7 @@ function wangJEchartsDraw(mapId){
     };
     bmapCharts.clear();
     bmapCharts.setOption(option);
+  }
 }
 
 
