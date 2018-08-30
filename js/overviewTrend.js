@@ -31,6 +31,7 @@ function overviewEchartsDraw(jsonName, mapId){
         },
         tooltip : {
             trigger: 'item',
+            confine: true,
             formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         legend: {
