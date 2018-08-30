@@ -97,7 +97,8 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             x:'center'
         },
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            confine: true,
         },
         legend: {
             x: 'right',
