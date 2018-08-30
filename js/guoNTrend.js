@@ -207,6 +207,7 @@ function echartsDraw(jsonName, mapId){
           },
           roam: false,
           itemStyle: {
+            fontSize: 2,
             areaColor: '#fff',
           }
       },
