@@ -101,10 +101,11 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         },
         legend: {
             x: 'right',
-            y: 20,
+            y: 22,
             // orient : 'vertical',
             textStyle: {
-              fontSize: 15,
+              fontSize: 12,
+              fontWeight: 'bolder',
             },
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
