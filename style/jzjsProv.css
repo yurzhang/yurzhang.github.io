@@ -6,6 +6,20 @@
   text-align: center;
   font-size : 0.8em;
 }
+@media(min-width: 414px)
+.fs-rotate {
+  transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(Rotation=1);
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
+  /*width: 1000px;*/
+  /*height: 100%;*/
+  margin-top: -370px;
+}
+@media(min-width: 100px)
 .fs-rotate {
   transform: rotate(90deg);
   -o-transform: rotate(90deg);
