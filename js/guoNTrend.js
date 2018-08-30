@@ -200,7 +200,7 @@ function echartsDraw(jsonName, mapId){
               normal:{//是图形在默认状态下的样式
                   show : true,
                   textStyle : {
-                    fontSize: 8
+                    fontSize: 4
                   }
               },
               emphasis: {
