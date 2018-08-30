@@ -104,7 +104,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             y: 20,
             // orient : 'vertical',
             textStyle: {
-              fontSize: 10,
+              fontSize: 15,
             },
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
@@ -123,7 +123,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['二','三','四','五','六','七']
+            data: ['二月','三月','四月','五月','六月','七月']
         },
         yAxis: {
             type: 'value',
