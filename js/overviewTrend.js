@@ -106,7 +106,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             // orient : 'vertical',
             textStyle: {
               fontSize: 12,
-              fontWeight: 'bolder',
+              // fontWeight: 'bolder',
             },
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
