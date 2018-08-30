@@ -52,7 +52,7 @@ function overviewEchartsDraw(jsonName, mapId){
                     {value:3183864451, name:'增值'},
                     {value:89890991021, name:'国内漫游'},
                     {value:723636143, name:'国际漫游'},
-                    {value:9518070513, name:'其它总部'}
+                    {value:9518070513, name:'其它'}
                 ],
                 itemStyle: {
                     emphasis: {
