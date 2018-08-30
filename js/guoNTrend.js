@@ -198,7 +198,10 @@ function echartsDraw(jsonName, mapId){
           zoom: 1.23,
           label: {
               normal:{//是图形在默认状态下的样式
-                  show : true
+                  show : true,
+                  textStyle : {
+                    fontSize: 2
+                  }
               },
               emphasis: {
                   show: false
@@ -209,9 +212,6 @@ function echartsDraw(jsonName, mapId){
           itemStyle: {
             areaColor: '#fff',
           },
-          textStyle : {
-            fontSize: 2
-          }
       },
       series: series
     };
