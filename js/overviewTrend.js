@@ -39,7 +39,7 @@ function overviewEchartsDraw(jsonName, mapId){
             // left: 'left',
             bottom: 10,
             left: 'center',
-            data: ['网间业务','增值业务','国内漫游业务','国际漫游业务','其它总部业务']
+            data: ['网间','增值','国内漫游','国际漫游','其它']
         },
         series : [
             {
@@ -48,11 +48,11 @@ function overviewEchartsDraw(jsonName, mapId){
                 radius : '55%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:32788038370, name:'网间业务'},
-                    {value:3183864451, name:'增值业务'},
-                    {value:89890991021, name:'国内漫游业务'},
-                    {value:723636143, name:'国际漫游业务'},
-                    {value:9518070513, name:'其它总部业务'}
+                    {value:32788038370, name:'网间'},
+                    {value:3183864451, name:'增值'},
+                    {value:89890991021, name:'国内漫游'},
+                    {value:723636143, name:'国际漫游'},
+                    {value:9518070513, name:'其它总部'}
                 ],
                 itemStyle: {
                     emphasis: {
