@@ -101,7 +101,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         },
         legend: {
             x: 'right',
-            y: 22,
+            y: 25,
             // orient : 'vertical',
             textStyle: {
               fontSize: 12,
