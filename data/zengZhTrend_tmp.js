@@ -1,10 +1,10 @@
-function zengZhDetailTrendDraw(jsonMame, mapId){
-
-    var bmapCharts = echarts.init(document.getElementById(mapId));
-    // 初始化地图
-    console.log(mapId);
-    console.log("initail map ok");
-    // app.title = '堆叠条形图';
+function zengZhTrendDraw(mapId){                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+    var bmapCharts = echarts.init(document.getElementById(mapId));                                                                                                                                                                              
+    // 初始化地图                                                                                                                                                                                                                               
+    console.log(mapId);                                                                                                                                                                                                                         
+    console.log("initail map ok");                                                                                                                                                                                                              
+    // app.title = '堆叠条形图';                                                                                                                                                                                                                
     option = {                                                                                                                                                                                                                                  
         title: {                                                                                                                                                                                                                                
             text: '各省增值支出情况单位（百元）',                                                                                                                                                                                                 
@@ -569,7 +569,7 @@ function zengZhDetailTrendDraw(jsonMame, mapId){
         ]                                                                                                                                                                                                                                       
     };                                                                                                                                                                                                                                          
     bmapCharts.clear();                                                                                                                                                                                                                         
-    bmapCharts.setOption(option);
-}
-
-
+    bmapCharts.setOption(option);                                                                                                                                                                                                               
+}                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
