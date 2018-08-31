@@ -119,7 +119,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
 
     option = {
         title: {
-            text: '近六个月各业务话单量趋势',
+            text: '近六个月各业务话单量趋势\n',
             x:'center'
         },
         tooltip: {
