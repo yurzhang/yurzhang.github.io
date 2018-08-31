@@ -97,7 +97,7 @@ class formatLog():
         for item in formatAns:
             jsonAns.append('{\"'+item[0]+'\":\"'+",".join(item[1:])+'\"}')
         jsonAns.append('{\"typeList\":\"'+",".join(typeList)+'\"}')
-        self.utilsXObj.writeFile("["+":".join(jsonAns)+"]", self.basePath+"/"+outFileName)
+        self.utilsXObj.writeFile("["+",".join(jsonAns)+"]", self.basePath+"/"+outFileName)
 
     def calc(self, ans):
         retAns = []
