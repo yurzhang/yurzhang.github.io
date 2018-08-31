@@ -47,6 +47,11 @@ function overviewEchartsDraw(jsonName, mapId){
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '50%'],
+                label: {
+                    normal: {
+                        position: 'inner'
+                    }
+                },
                 data:[
                     {value:32788038370, name:'网间'},
                     {value:3183864451, name:'增值'},
@@ -108,7 +113,8 @@ function overviewTrendEchartsDraw(jsonName, mapId){
               fontSize: 12,
               // fontWeight: 'bolder',
             },
-            data: ['网间','增值','国内漫游','国际漫游','其它']
+            data: ['网间','增值','国内漫游','国际漫游','其它'],
+            selectedMode: 'single',
         },
         // grid: {
         //     left: '3%',
