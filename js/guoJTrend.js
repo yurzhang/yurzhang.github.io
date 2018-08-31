@@ -226,7 +226,7 @@ function guoJEchartsDraw(jsonName, mapId){
           textStyle: {
               color: '#233'
           },
-          selectedMode: 'single'
+          // selectedMode: 'single'
       },
       visualMap: {//颜色的设置  dataRange
           x: 'left',
