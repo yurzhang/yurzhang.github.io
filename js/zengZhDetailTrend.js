@@ -6,17 +6,13 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     $.each(data, function(infoIndex, info){ 
       for(var key in info) {
         if (key === "PROVNAME") {
-          zengZhList.push({
-            provListOrder: info.PROVNAME,
-          });
+          zengZhList["provListOrder"] = info.PROVNAME;
         }
         else if (key === "typeList") {
-          zengZhList.push({
-            typeList: info.typeList,
-          });
+          zengZhList["typeList"] = info.typeList;
         }
         else {
-          zengZhList[key] = info[key]
+          zengZhList[key] = info[key];
         }
       }
     });
@@ -112,7 +108,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
         },                                                                                                                                                                                                                                      
         yAxis: {                                                                                                                                                                                                                                
             type: 'category',
-            data: zengZhList.provListOrder.split(',')                                                                                                                                                                                                                   
+            data: zengZhList["provListOrder"].split(',')                                                                                                                                                                                                                   
             // data: ['吉林','西藏','北京','陕西','青海','宁夏','甘肃','贵州','新疆','山西','安徽','内蒙古','福建','江西','云南','上海','海南','江苏','重庆','广西','辽宁','河南','湖北','浙江','湖南','山东','四川','黑龙江','天津','广东','河北']
         },                                                                                                                                                                                                                                      
         series: [                                                                                                                                                                                                                               
