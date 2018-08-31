@@ -210,11 +210,11 @@ function guoJEchartsDraw(jsonName, mapId){
           confine: true,
           formatter: function (v) {
             console.log(v);
-            if (v.seriesName == 'mapContentX') {
-              return allnationUnits[v.name];
-            }
+            if (v.seriesName !== 'mapContentX') {
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
-            return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"SDR";
+              return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"SDR";
+            }
+
           }
       },
       legend: {
