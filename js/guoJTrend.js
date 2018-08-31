@@ -169,8 +169,6 @@ function guoJEchartsDraw(jsonName, mapId){
       });
     });
 
-    alert("aaaaaaaaaaaa");
-
     // 地图省分着色
     var worldLegendData = new Array();
     nationSetTop10.forEach(function(item, i) {
@@ -224,7 +222,7 @@ function guoJEchartsDraw(jsonName, mapId){
           top: 'center',
           left: 'right',
           data:['Top10'],
-          show: false,
+          show: true,
           textStyle: {
               color: '#233'
           },
@@ -233,7 +231,7 @@ function guoJEchartsDraw(jsonName, mapId){
       visualMap: {//颜色的设置  dataRange
           x: 'left',
           y: 'bottom',
-          show: false,
+          show: true,
           // show: true,
           splitList : nowSplitList,
           hoverLink : false,
@@ -248,7 +246,7 @@ function guoJEchartsDraw(jsonName, mapId){
           zoom: 1.1,
           label: {
               normal:{//是图形在默认状态下的样式
-                  show : true,
+                  show : false,
                   textStyle : {
                     fontSize: 6
                   }
