@@ -59,7 +59,7 @@ class formatLog():
             itemList = recordItem.split(',')
             # [{"roam":"10","msi":"11","value":"123"},{"roam":"11","msi":"71","value":"102"},{"roam":"13","msi":"71","value":"222"}]
             ans.append('{\"roam\":\"'+itemList[1]+'\",\"msi\":\"'+itemList[2]+'\",\"value\":\"'+itemList[3]+'\"}')
-        self.utilsXObj.writeFile(",".join(ans), self.basePath+"/"+outFileName)
+        self.utilsXObj.writeFile("["+",".join(ans)+"]", self.basePath+"/"+outFileName)
     
     def guoN(self, fileName, outFileName):
         records = self.utilsXObj.readFile(self.basePath+"/"+fileName)
@@ -69,7 +69,7 @@ class formatLog():
             itemList = recordItem.split(',')
             # [{"roam":"10","msi":"11","value":"123"},{"roam":"11","msi":"71","value":"102"},{"roam":"13","msi":"71","value":"222"}]
             ans.append('{\"roam\":\"'+itemList[1]+'\",\"msi\":\"'+itemList[2]+'\",\"value\":\"'+itemList[3]+'\"}')
-        self.utilsXObj.writeFile(",".join(ans), self.basePath+"/"+outFileName)
+        self.utilsXObj.writeFile("["+",".join(ans)+"]", self.basePath+"/"+outFileName)
     
     def startFormat(self):
         self.guoJ('gjjs_trend_201807.log', 'guoJProvTrend_201807.json')
