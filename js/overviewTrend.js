@@ -137,12 +137,10 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             data: ['网间','增值','国内漫游','国际漫游','其它'],
             selectedMode: 'single',
         },
-        // grid: {
-        //     left: '3%',
-        //     right: '4%',
-        //     bottom: '3%',
-        //     containLabel: true
-        // },
+        grid: {
+            top: '30%'
+            containLabel: true
+        },
         toolbox: {
             show: false
             // feature: {
