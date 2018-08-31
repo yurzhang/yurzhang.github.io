@@ -48,7 +48,6 @@ function echartsDraw(jsonName, mapId){
 
     var series = [];
       [['10', provchargedUnitsTop10]].forEach(function (item, i) {
-        alert(item[0]);
       series.push({
         name: 'Top'+item[0],
         type: 'lines',
