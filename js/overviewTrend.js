@@ -49,9 +49,10 @@ function overviewEchartsDraw(jsonName, mapId){
                 center: ['50%', '50%'],
                 label: {
                     normal: {
-                        position: 'inner'
+                        position: 'inner',
+                        formatter: '{d}%',
                     }
-                },
+                }
                 data:[
                     {value:32788038370, name:'网间'},
                     {value:3183864451, name:'增值'},
