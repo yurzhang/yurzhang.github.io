@@ -102,6 +102,13 @@
       </div>
       <br />
 
+      <div id="zengZhPage">
+        <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;<strong>增值业务：</strong></div>
+        <!-- <img src="https://upload-images.jianshu.io/upload_images/6101555-05cb384f6fc93015.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /> -->
+        <div id="zengZhPageMap" style="width:100%; height : 600px"></div>
+      </div>
+      <br />
+      
       <div id="guoNPage">
         <div style="font-size:1.3em"><span class="glyphicon glyphicon-hand-right text-info" aria-hidden="true"></span>&nbsp;&nbsp;<strong>国内漫游业务：</strong></div>
         <!-- <div>省间漫入、漫出Top10：</div> -->
@@ -131,7 +138,8 @@
     <script type="text/javascript" src="./js/guoJTrend.js"></script>
     <script type="text/javascript" src="./js/wangJTrend.js"></script>
     <script type="text/javascript" src="./js/overviewTrend.js"></script>
-    
+    <script type="text/javascript" src="../js/zengZhTrend.js"></script>
+
     <script type="text/javascript">
 
     $(document).ready(function(){
@@ -150,6 +158,7 @@
       overviewEchartsDraw("guoNProvTrend.json", "overviewPageMap");
       overviewTrendEchartsDraw("guoNProvTrend.json", "overviewTrendPageMap");
       wangJEchartsDraw("guoNProvTrend.json", "wangJPageMap");
+      zengZhTrendDraw("guoNProvTrend.json", "zengZhPageMap");
       echartsDraw("guoNProvTrend_201807.json", "guoNPageMap");
       guoJEchartsDraw("guoJProvTrend_201807.json", "guoJPageMap");
     });
