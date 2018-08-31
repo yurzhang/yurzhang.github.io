@@ -247,7 +247,7 @@ function guoJEchartsDraw(jsonName, mapId){
           zoom: 1.1,
           label: {
               normal:{//是图形在默认状态下的样式
-                  show : false,
+                  show : true,
                   textStyle : {
                     fontSize: 6
                   }
