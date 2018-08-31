@@ -34,7 +34,7 @@ class utilsX():
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
 
-        with open(fileName, 'w', encoding='utf-8') as logFile:
+        with open(fileName, 'w') as logFile:
             for recordItem in record:
                 logFile.write(recordItem)
 
@@ -95,9 +95,9 @@ class formatLog():
         jsonAns = []
         formatAns = [[row[col] for row in ans] for col in range(len(ans[0]))]
         for item in formatAns:
-            jsonAns.append('{\"'+item[0]+'\",\"'+",".join(item[1:])+'\"}')
-        jsonAns.append('{\"typeList\",\"'+",".join(typeList)+'\"}')
-        self.utilsXObj.writeFile("["+",".join(jsonAns)+"]", self.basePath+"/"+outFileName)
+            jsonAns.append('{\"'+item[0]+'\":\"'+",".join(item[1:])+'\"}')
+        jsonAns.append('{\"typeList\":\"'+",".join(typeList)+'\"}')
+        self.utilsXObj.writeFile("["+":".join(jsonAns)+"]", self.basePath+"/"+outFileName)
 
     def calc(self, ans):
         retAns = []
