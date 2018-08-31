@@ -41,6 +41,7 @@ function overviewEchartsDraw(jsonName, mapId){
             left: 'center',
             data: ['网间','增值','国内漫游','国际漫游','其它']
         },
+        animation: false,
         series : [
             {
                 name: '话单量及占比',
