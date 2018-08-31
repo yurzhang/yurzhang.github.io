@@ -37,7 +37,7 @@ function echartsDraw(jsonName, mapId){
             fromName: gProvCode[roamAndMsi[1]],
             toName: gProvCode[roamAndMsi[0]],
             coords: [fromCoord, toCoord],
-            unitsValue: Math.ceil(parseInt(dataItem.value)/1024/1024),
+            unitsValue: Math.ceil(parseInt(dataItem.value)),
             sortIdx: i+1,
             value: 0
          });
