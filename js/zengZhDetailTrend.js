@@ -6,13 +6,15 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     $.each(data, function(infoIndex, info){ 
       for(var key in info) {
         if (key === "PROVNAME") {
-          zengZhList["provListOrder"] = info.PROVNAME;
+          zengZhList["provListOrder"] = info.PROVNAME.split(',');
         }
         else if (key === "typeList") {
-          zengZhList["typeList"] = info.typeList;
+          zengZhList["typeList"] = info.typeList.split(',');
         }
         else {
-          zengZhList[key] = info[key];
+          zengZhList[key] = info[key].split(',').map(function(item) {
+            return Number(item) / 100;
+          });
         }
       }
     });
@@ -21,7 +23,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     // console.log(zengZhList["typeList"]);
     // console.log(zengZhList.typeList);
     var series = new Array();
-    zengZhList["typeList"].split(",").forEach(function (item, i) {
+    zengZhList["typeList"].forEach(function (item, i) {
       series.push({                                                                                                                                                                                                                          
         name: item,                                                                                                                                                                                                        
         type: 'bar',                                                                                                                                                                                                                    
@@ -32,7 +34,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
                 position: 'insideRight'                                                                                                                                                                                                 
             }                                                                                                                                                                                                                           
         },                                                                                                                                                                                                                              
-        data: zengZhList[item].split(",")
+        data: zengZhList[item]
       });
     });
     // console.log(series);
@@ -58,8 +60,8 @@ function zengZhDetailTrendDraw(jsonName, mapId){
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'                                                                                                                                                                 
             },                                                                                                                                                                                                                                  
             formatter: function(params) {                                                                                                                                                                                                       
-                console.log(params);                                                                                                                                                                                                            
-                console.log(params[0].data);                                                                                                                                                                                                    
+                // console.log(params);                                                                                                                                                                                                            
+                // console.log(params[0].data);                                                                                                                                                                                                    
                 var showTips = params[0].name;                                                                                                                                                                                                  
                 function formatNumber(num) {                                                                                                                                                                                                    
                     return ("" + num).replace(/(\d{1,3})(?=(\d{3})+(?:$|\.))/g, "$1,");                                                                                                                                                         
@@ -108,7 +110,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
         },                                                                                                                                                                                                                                      
         yAxis: {                                                                                                                                                                                                                                
             type: 'category',
-            data: zengZhList["provListOrder"].split(',')                                                                                                                                                                                                                   
+            data: zengZhList["provListOrder"]                                                                                                                                                                                                                   
             // data: ['吉林','西藏','北京','陕西','青海','宁夏','甘肃','贵州','新疆','山西','安徽','内蒙古','福建','江西','云南','上海','海南','江苏','重庆','广西','辽宁','河南','湖北','浙江','湖南','山东','四川','黑龙江','天津','广东','河北']
         },                                                                                                                                                                                                                                      
         series: series                                                                                                                                                                                                      
