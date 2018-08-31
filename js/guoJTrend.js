@@ -17,7 +17,7 @@ function guoJEchartsDraw(jsonName, mapId){
     nationDate.sort(function(a, b){return b.value - a.value});
     console.log(nationDate);
 
-    var nationchargedUnitsTop10 = nationDate.slice(0, 10);
+    var nationchargedUnitsTop10 = nationDate.slice(0, 11);
 
     nationchargedUnitsTop10.forEach(function (item, i) {
       var roamAndMsi = item.roamAndMsi.split(',');

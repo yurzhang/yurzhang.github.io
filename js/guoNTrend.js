@@ -17,7 +17,7 @@ function echartsDraw(jsonName, mapId){
     provDate.sort(function(a, b){return b.value - a.value});
     console.log(provDate);
 
-    var provchargedUnitsTop10 = provDate.slice(0, 10);
+    var provchargedUnitsTop10 = provDate.slice(0, 11);
 
     provchargedUnitsTop10.forEach(function (item, i) {
       var roamAndMsi = item.roamAndMsi.split(',');
