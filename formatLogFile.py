@@ -34,7 +34,7 @@ class utilsX():
         if not os.path.exists(dirPath):
             os.makedirs(dirPath)
 
-        with open(fileName, 'w') as logFile:
+        with open(fileName, 'w', encoding='utf-8') as logFile:
             for recordItem in record:
                 logFile.write(recordItem)
 
@@ -70,13 +70,50 @@ class formatLog():
             # [{"roam":"10","msi":"11","value":"123"},{"roam":"11","msi":"71","value":"102"},{"roam":"13","msi":"71","value":"222"}]
             ans.append('{\"roam\":\"'+itemList[1]+'\",\"msi\":\"'+itemList[2]+'\",\"value\":\"'+itemList[3]+'\"}')
         self.utilsXObj.writeFile("["+",".join(ans)+"]", self.basePath+"/"+outFileName)
-    
+
+    def zengZh(self, fileName, outFileName):
+        os.system("sed -i 's/\"//g' "+self.basePath+"/"+fileName)
+        records = self.utilsXObj.readFile(self.basePath+"/"+fileName)
+        ans = []
+        # 先形成二维数组 准备行转列
+        for recordItem in records:
+            print recordItem
+            itemList = recordItem.split(',')
+            # [{"provName":",,,,,"},{"productList":",,,,"},{"lianmeng":",,,,"},{"iptv":",,,"}]
+            ans.append(itemList)
+            # ans.append('{\"roam\":\"'+itemList[1]+'\",\"msi\":\"'+itemList[2]+'\",\"value\":\"'+itemList[3]+'\"}')
+
+        
+        # lista = self.calc(ans)
+        # idx = 0
+        # for itemA in lista:
+        #     idx += 1
+        #     print ",".join(itemA)
+        #     print idx
+        #     print "\n"
+        typeList = ans[0][2:]
+        jsonAns = []
+        formatAns = [[row[col] for row in ans] for col in range(len(ans[0]))]
+        for item in formatAns:
+            jsonAns.append('{\"'+item[0]+'\",\"'+",".join(item[1:])+'\"}')
+        jsonAns.append('{\"typeList\",\"'+",".join(typeList)+'\"}')
+        self.utilsXObj.writeFile("["+",".join(jsonAns)+"]", self.basePath+"/"+outFileName)
+
+    def calc(self, ans):
+        retAns = []
+        for col in range(len(ans[0])):
+            tAns = []
+            for item in ans:
+                tAns.append(item[col])
+            retAns.append(tAns)
+        return retAns
+
     def startFormat(self):
         self.guoJ('gjjs_trend_201807.log', 'guoJProvTrend_201807.json')
         self.guoN('gprsr_monthtrend_201807.log', 'guoNProvTrend_201807.json')
+        self.zengZh('tmpdir/zengZhTrend.csv', 'zengZhTrend_201807.json')
 
 if __name__ == '__main__':
     formatLogObj = formatLog("/settle/settle/bin/xukf/test/fileStatInfo")
     formatLogObj.startFormat()
 
-        

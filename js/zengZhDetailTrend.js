@@ -1,4 +1,26 @@
 function zengZhDetailTrendDraw(jsonMame, mapId){
+  zengZhList = new Array()
+  $.get("../data/"+jsonName).done(function(data){ 
+    console.log("get data zengZhTrend");
+    $.each(data, function(infoIndex, info){ 
+      for(var key in info) {
+        if (key === "PROVNAME") {
+          zengZhList.push({
+            provListOrder: info.PROVNAME,
+          });
+        }
+        else if (key === "typeList") {
+          zengZhList.push({
+            typeList: info.typeList,
+          });
+        }
+        else {
+          zengZhList[key] = info[key]
+        }
+      }
+    });
+
+    console.log(zengZhList);
 
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
@@ -571,6 +593,7 @@ function zengZhDetailTrendDraw(jsonMame, mapId){
     };                                                                                                                                                                                                                                          
     bmapCharts.clear();                                                                                                                                                                                                                         
     bmapCharts.setOption(option);
+  });
 }
 
 
