@@ -243,7 +243,7 @@ function guoJEchartsDraw(jsonName, mapId){
       
       geo: {
           map: 'world',
-          zoom: 1.1,
+          // zoom: 1.1,
           label: {
               normal:{//是图形在默认状态下的样式
                   show : false,
@@ -256,7 +256,7 @@ function guoJEchartsDraw(jsonName, mapId){
                   // show: true
               }
           },
-          roam: false,
+          roam: true,
 
           regions: worldNameShowData,
 
