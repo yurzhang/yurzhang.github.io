@@ -175,11 +175,11 @@ function echartsDraw(jsonName, mapId){
           top: 'center',
           left: 'right',
           data:['Top10'],
-          show: false,
+          show: true,
           textStyle: {
               color: '#233'
           },
-          selectedMode: 'single'
+          // selectedMode: 'single'
       },
       visualMap: {//颜色的设置  dataRange
           x: 'left',
