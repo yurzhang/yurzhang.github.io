@@ -85,9 +85,9 @@ function guoJEchartsDraw(jsonName, mapId){
             normal:{//是图形在默认状态下的样式
               show : true
             },
-            emphasis: {
-              show: false
-            }
+            // emphasis: {
+            //   show: false
+            // }
           },
       });
     });
@@ -167,6 +167,8 @@ function guoJEchartsDraw(jsonName, mapId){
         data: {}
       });
     });
+
+    alert("aaaaaaaaaaaa");
 
     // 地图省分着色
     var worldLegendData = new Array();
