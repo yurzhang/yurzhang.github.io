@@ -199,7 +199,7 @@ function echartsDraw(jsonName, mapId){
           zoom: 1.23,
           label: {
               normal:{//是图形在默认状态下的样式
-                  show : true,
+                  show : false,
                   textStyle : {
                     fontSize: 6
                   }
