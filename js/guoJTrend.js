@@ -58,7 +58,7 @@ function guoJEchartsDraw(jsonName, mapId){
         if (fromCoord && toCoord) {
           res.push({
             name: dataItem[1].name,
-            value: latlong[dataItem[1].name],  // 起点的位置
+            value: gWorldLatlong[dataItem[1].name],  // 起点的位置
             fromName: dataItem[0].name,
             toName: dataItem[1].name,
             unitsValue: Math.ceil(parseInt(dataItem[1].value)),
