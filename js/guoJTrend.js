@@ -15,7 +15,7 @@ function guoJEchartsDraw(jsonName, mapId){
     });
 
     nationDate.sort(function(a, b){return b.value - a.value});
-    console.log(nationDate);
+    // console.log(nationDate);
 
     var nationchargedUnitsTop10 = nationDate.slice(0, 10);
 
@@ -43,13 +43,13 @@ function guoJEchartsDraw(jsonName, mapId){
          });
         }
       }
-      console.log(res);
+      // console.log(res);
       return res;
     };
 
     var convertData2= function (data) {
       var res = [];
-      console.log( data.length);
+      // console.log( data.length);
       for (var i = 0; i < data.length; i++) {
         var dataItem = data[i];
         var roamAndMsi = dataItem.roamAndMsi.split(',');
@@ -172,7 +172,7 @@ function guoJEchartsDraw(jsonName, mapId){
     // 地图省分着色
     var worldLegendData = new Array();
     nationSetTop10.forEach(function(item, i) {
-      console.log(item+ " aaaa " +i);
+      // console.log(item+ " aaaa " +i);
       worldLegendData[i] = {name: gWorldCode[item], value: 1};
     })
     series.push(
@@ -209,7 +209,7 @@ function guoJEchartsDraw(jsonName, mapId){
           trigger: 'item',
           confine: true,
           formatter: function (v) {
-            console.log(v);
+            // console.log(v);
             if (v.seriesName == 'mapContentX') {
               return allnationUnits[v.name];
             }

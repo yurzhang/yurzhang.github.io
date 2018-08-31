@@ -23,6 +23,23 @@ function zengZhDetailTrendDraw(jsonName, mapId){
 
     console.log(zengZhList);
 
+    var series = new Array();
+    zengZhList.typeList.split(",").forEach(function (item, i) {
+      series.push({                                                                                                                                                                                                                          
+        name: item,                                                                                                                                                                                                        
+        type: 'bar',                                                                                                                                                                                                                    
+        stack: '总量',                                                                                                                                                                                                                  
+        label: {                                                                                                                                                                                                                        
+            normal: {                                                                                                                                                                                                                   
+                show: false,                                                                                                                                                                                                            
+                position: 'insideRight'                                                                                                                                                                                                 
+            }                                                                                                                                                                                                                           
+        },                                                                                                                                                                                                                              
+        data: zengZhList[item].split(",")
+      });
+    });
+    console.log(series);
+    
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
     console.log(mapId);
@@ -93,8 +110,9 @@ function zengZhDetailTrendDraw(jsonName, mapId){
             type: 'value'                                                                                                                                                                                                                       
         },                                                                                                                                                                                                                                      
         yAxis: {                                                                                                                                                                                                                                
-            type: 'category',                                                                                                                                                                                                                   
-            data: ['吉林','西藏','北京','陕西','青海','宁夏','甘肃','贵州','新疆','山西','安徽','内蒙古','福建','江西','云南','上海','海南','江苏','重庆','广西','辽宁','河南','湖北','浙江','湖南','山东','四川','黑龙江','天津','广东','河北']
+            type: 'category',
+            data: zengZhList.provListOrder.split(',')                                                                                                                                                                                                                   
+            // data: ['吉林','西藏','北京','陕西','青海','宁夏','甘肃','贵州','新疆','山西','安徽','内蒙古','福建','江西','云南','上海','海南','江苏','重庆','广西','辽宁','河南','湖北','浙江','湖南','山东','四川','黑龙江','天津','广东','河北']
         },                                                                                                                                                                                                                                      
         series: [                                                                                                                                                                                                                               
             {                                                                                                                                                                                                                                   

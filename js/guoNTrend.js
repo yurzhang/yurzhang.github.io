@@ -15,7 +15,7 @@ function echartsDraw(jsonName, mapId){
     });
 
     provDate.sort(function(a, b){return b.value - a.value});
-    console.log(provDate);
+    // console.log(provDate);
 
     var provchargedUnitsTop10 = provDate.slice(0, 10);
 
@@ -125,7 +125,7 @@ function echartsDraw(jsonName, mapId){
     // 地图省分着色
     var provLegendData = new Array();
     provSetTop10.forEach(function(item, i) {
-      console.log(item+ " aaaa " +i);
+      // console.log(item+ " aaaa " +i);
       provLegendData[i] = {name: gProvCode[item], value: 1};
     })
     series.push(
@@ -137,7 +137,7 @@ function echartsDraw(jsonName, mapId){
           data: provLegendData
       }
     );
-    console.log(".....................................................");
+    // console.log(".....................................................");
     // echarts.registerMap('china', data);
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
