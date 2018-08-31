@@ -138,7 +138,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             selectedMode: 'single',
         },
         grid: {
-            top: '35%'
+            top: '35%',
             containLabel: true
         },
         toolbox: {
