@@ -130,6 +130,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
                 type: 'none',
             }
         },
+        animation: false,
         legend: {
             x: 'center',
             y: 38,

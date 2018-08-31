@@ -14,6 +14,7 @@ function zengZhDetailTrendDraw(jsonMame, mapId){
             // subtext: 'From ExcelHome',                                                                                                                                                                                                       
             sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'                                                                                                                                                                                  
         },                                                                                                                                                                                                                                      
+        animation: false,
         tooltip : {                                                                                                                                                                                                                             
             trigger: 'axis',                                                                                                                                                                                                                    
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效                                                                                                                                                                          

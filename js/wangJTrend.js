@@ -55,6 +55,7 @@ function wangJEchartsDraw(jsonName, mapId){
                 return showTips;                                                                                                                                                                                                                
             }                                                                                                                                                                                                                                   
         },                                                                                                                                                                                                                                      
+        animation: false,
         legend: {                                                                                                                                                                                                                               
             data: ['']},                                                                                                                                                                                                                        
         grid: {                                                                                                                                                                                                                                 

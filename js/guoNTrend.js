@@ -170,6 +170,7 @@ function echartsDraw(jsonName, mapId){
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"MB";
           }
       },
+      animation: false,
       legend: {
           orient: 'vertical',
           top: 'center',
