@@ -160,6 +160,7 @@ function echartsDraw(jsonName, mapId){
       },
       tooltip : {
           trigger: 'item',
+          confine: true,
           formatter: function (v) {
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
