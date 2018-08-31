@@ -52,7 +52,27 @@ function overviewEchartsDraw(jsonName, mapId){
                         position: 'inner',
                         formatter: '{d}%',
                     }
+                },
+                data:[
+                    {value:32788038370, name:'网间'},
+                    {value:3183864451, name:'增值'},
+                    {value:89890991021, name:'国内漫游'},
+                    {value:723636143, name:'国际漫游'},
+                    {value:9518070513, name:'其它'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
                 }
+            },
+            {
+                name: '话单量及占比',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
                 data:[
                     {value:32788038370, name:'网间'},
                     {value:3183864451, name:'增值'},
