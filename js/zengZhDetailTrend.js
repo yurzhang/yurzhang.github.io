@@ -1,6 +1,6 @@
 function zengZhDetailTrendDraw(jsonName, mapId){
   zengZhList = new Array();
-  alert("123213");
+  alert("aaaa");
   $.get("../data/"+jsonName).done(function(data){ 
     console.log("get data zengZhTrend");
     $.each(data, function(infoIndex, info){ 
@@ -22,9 +22,10 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     });
 
     console.log(zengZhList);
-
+    console.log(zengZhList[typeList]);
+    console.log(zengZhList.typeList);
     var series = new Array();
-    zengZhList.typeList.split(",").forEach(function (item, i) {
+    zengZhList[typeList].split(",").forEach(function (item, i) {
       series.push({                                                                                                                                                                                                                          
         name: item,                                                                                                                                                                                                        
         type: 'bar',                                                                                                                                                                                                                    
@@ -39,7 +40,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
       });
     });
     console.log(series);
-    
+
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
     console.log(mapId);
