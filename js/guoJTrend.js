@@ -222,7 +222,7 @@ function guoJEchartsDraw(jsonName, mapId){
           top: 'center',
           left: 'right',
           data:['Top10'],
-          show: true,
+          show: false,
           textStyle: {
               color: '#233'
           },
@@ -231,7 +231,7 @@ function guoJEchartsDraw(jsonName, mapId){
       visualMap: {//颜色的设置  dataRange
           x: 'left',
           y: 'bottom',
-          show: true,
+          show: false,
           // show: true,
           splitList : nowSplitList,
           hoverLink : false,
@@ -243,7 +243,7 @@ function guoJEchartsDraw(jsonName, mapId){
       
       geo: {
           map: 'world',
-          // zoom: 1.1,
+          zoom: 1.1,
           label: {
               normal:{//是图形在默认状态下的样式
                   show : false,
