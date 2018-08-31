@@ -119,7 +119,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
 
     option = {
         title: {
-            text: '近六个月各业务话单量趋势\n123',
+            text: '近六个月各业务话单量趋势',
             x:'center'
         },
         tooltip: {
@@ -128,7 +128,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         },
         legend: {
             x: 'right',
-            y: 32,
+            y: 33,
             // orient : 'vertical',
             textStyle: {
               fontSize: 12,
@@ -138,7 +138,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             selectedMode: 'single',
         },
         grid: {
-            top: '30%'
+            top: '35%'
             containLabel: true
         },
         toolbox: {
