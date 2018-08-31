@@ -139,7 +139,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         },
         grid: {
             top: '35%',
-            left: 0,
+            // left: 0,
             containLabel: false
         },
         toolbox: {
