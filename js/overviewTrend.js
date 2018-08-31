@@ -125,6 +125,9 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         tooltip: {
             trigger: 'axis',
             confine: true,
+            axisPointer: {
+                type: 'none',
+            }
         },
         legend: {
             x: 'center',
