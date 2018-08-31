@@ -1,6 +1,6 @@
 function zengZhDetailTrendDraw(jsonName, mapId){
   zengZhList = new Array();
-  alert("hahaha");
+  alert("123213");
   $.get("../data/"+jsonName).done(function(data){ 
     console.log("get data zengZhTrend");
     $.each(data, function(infoIndex, info){ 
