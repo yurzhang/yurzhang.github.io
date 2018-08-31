@@ -1,4 +1,4 @@
-function zengZhTrendDraw(mapId){
+function zengZhTrendDraw(jsonName, mapId){
 
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
