@@ -175,7 +175,7 @@ function echartsDraw(jsonName, mapId){
           top: 'center',
           left: 'right',
           data:['Top10'],
-          show: true,
+          show: false,
           textStyle: {
               color: '#233'
           },
