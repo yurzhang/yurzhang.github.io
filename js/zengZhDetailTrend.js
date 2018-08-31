@@ -22,10 +22,10 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     });
 
     console.log(zengZhList);
-    console.log(zengZhList[typeList]);
+    console.log(zengZhList["typeList"]);
     console.log(zengZhList.typeList);
     var series = new Array();
-    zengZhList[typeList].split(",").forEach(function (item, i) {
+    zengZhList["typeList"].split(",").forEach(function (item, i) {
       series.push({                                                                                                                                                                                                                          
         name: item,                                                                                                                                                                                                        
         type: 'bar',                                                                                                                                                                                                                    
