@@ -43,6 +43,7 @@ function guoJEchartsDraw(jsonName, mapId){
          });
         }
       }
+      console.log(res);
       return res;
     };
 
