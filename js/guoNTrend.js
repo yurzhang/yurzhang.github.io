@@ -135,11 +135,6 @@ function echartsDraw(jsonName, mapId){
           geoIndex: 0,
           // tooltip: {show: false},
           data: provLegendData,
-          label: {
-              emphasis: {
-                  show: false
-              }
-          },
       }
     );
     // console.log(".....................................................");
@@ -206,7 +201,7 @@ function echartsDraw(jsonName, mapId){
           zoom: 1.23,
           label: {
               normal:{//是图形在默认状态下的样式
-                  show : false,
+                  show : true,
                   textStyle : {
                     fontSize: 6
                   }
