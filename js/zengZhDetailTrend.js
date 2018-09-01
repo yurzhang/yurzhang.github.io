@@ -106,8 +106,14 @@ function zengZhDetailTrendDraw(jsonName, mapId){
             containLabel: true                                                                                                                                                                                                                  
         },                                                                                                                                                                                                                                      
         xAxis:  {                                                                                                                                                                                                                               
-            type: 'value'                                                                                                                                                                                                                       
-        },                                                                                                                                                                                                                                      
+            type: 'value' ,
+            axisLabel: {
+                formatter: function(params) {
+                    return params/10000 + "万"
+                }
+            }
+            // data: [-500, 0, 1000,1500, 2000,2500,3000]
+        },                                                                                                                                                                                                                                   
         yAxis: {                                                                                                                                                                                                                                
             type: 'category',
             data: zengZhList["provListOrder"]                                                                                                                                                                                                                   
