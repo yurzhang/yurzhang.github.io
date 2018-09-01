@@ -47,7 +47,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
     // app.title = '堆叠条形图';
     option = {                                                                                                                                                                                                                                  
         title: {                                                                                                                                                                                                                                
-            text: '各省增值支出情况单位（百元）',                                                                                                                                                                                                 
+            text: '各省增值支出情况单位（元）',                                                                                                                                                                                                 
             left:'50%',                                                                                                                                                                                                                         
             top:'1%',                                                                                                                                                                                                                           
             textAlign:'center',                                                                                                                                                                                                                 
