@@ -111,7 +111,7 @@ class formatLog():
     def startFormat(self):
         self.guoJ('gjjs_trend_201807.log', 'guoJProvTrend_201807.json')
         self.guoN('gprsr_monthtrend_201807.log', 'guoNProvTrend_201807.json')
-        self.zengZh('tmpdir/zengZhTrend.csv', 'zengZhTrend_201807.json')
+        self.zengZh('tmpdir/zengZhZG201807.csv', 'zengZhTrend_201807.json')
 
 if __name__ == '__main__':
     formatLogObj = formatLog("/settle/settle/bin/xukf/test/fileStatInfo")
