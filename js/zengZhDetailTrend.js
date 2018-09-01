@@ -13,7 +13,8 @@ function zengZhDetailTrendDraw(jsonName, mapId){
         }
         else {
           zengZhList[key] = info[key].split(',').map(function(item) {
-            return Number(item) / 100;
+            return Number(item);
+            // return Number(item) / 100;
           });
         }
       }
