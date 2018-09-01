@@ -156,7 +156,12 @@ function echartsDraw(jsonName, mapId){
           left: 'center',
           textStyle : {
               color: '#233'
-          }
+          },
+          label: {
+              emphasis: {
+                  show: false
+              }
+          },
       },
       tooltip : {
           trigger: 'item',
@@ -165,7 +170,7 @@ function echartsDraw(jsonName, mapId){
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
               // return allProvUnits[v.name];
-              return false;
+              return ;
             }
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"MB";
