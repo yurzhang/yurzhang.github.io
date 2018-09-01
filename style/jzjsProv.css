@@ -1,6 +1,7 @@
 .fs-table > tbody > tr > td {
   text-align: right;
   font-size : 0.7em;
+  padding-right: 5px;
 }
 .fs-op-type {
   text-align: center !important;
