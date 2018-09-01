@@ -134,7 +134,12 @@ function echartsDraw(jsonName, mapId){
           type: 'map',
           geoIndex: 0,
           // tooltip: {show: false},
-          data: provLegendData
+          data: provLegendData,
+          label: {
+              emphasis: {
+                  show: false
+              }
+          },
       }
     );
     // console.log(".....................................................");
@@ -156,11 +161,6 @@ function echartsDraw(jsonName, mapId){
           left: 'center',
           textStyle : {
               color: '#233'
-          },
-          label: {
-              emphasis: {
-                  show: false
-              }
           },
       },
       tooltip : {
