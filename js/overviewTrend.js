@@ -182,7 +182,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             {
                 name:'国际漫游',
                 type:'line',
-                data:[0, 0, 0, 0, 0, 723636143]
+                data:[525539649, 611852069, 634158651, 634616409, 654902576, 723636143]
             },
             {
                 name:'其它',
