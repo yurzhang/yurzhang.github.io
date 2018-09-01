@@ -2,6 +2,9 @@
   text-align: right;
   font-size : 0.7em;
 }
+.fs-op-type{
+  text-align: center;
+}
 .fs-table > tbody > tr > th {
   text-align: center;
   font-size : 0.8em;
