@@ -3,6 +3,8 @@ function echartsDraw(jsonName, mapId){
   var provDateSettings = new Array();
 
   var provSetTop10 = new Set();
+  var roamProvUnits = new Array();
+  var msiProvUnits = new Array();
 
   console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
@@ -12,6 +14,8 @@ function echartsDraw(jsonName, mapId){
           roamAndMsi: info.roam+','+info.msi,
           value: Number(info.value)
         });
+        roamProvUnits[info.roam] = Number(info.value) + (typeof roamProvUnits[info.roam] == "undefined" ? 0: roamProvUnits[info.roam])
+        msiProvUnits[info.msi] = Number(info.value) + (typeof msiProvUnits[info.msi] == "undefined" ? 0: msiProvUnits[info.msi])
     });
 
     provDate.sort(function(a, b){return b.value - a.value});
@@ -164,6 +168,8 @@ function echartsDraw(jsonName, mapId){
           formatter: function (v) {
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
+              console.log(v);
+              // console.log(roamProvUnits[v.data.fromName]);
               return allProvUnits[v.name];
               // return ;
             }
