@@ -168,8 +168,8 @@ function echartsDraw(jsonName, mapId){
           formatter: function (v) {
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
-              console.log(v);
-              // console.log(roamProvUnits[v.data.fromName]);
+              // console.log(v);
+              console.log(roamProvUnits[gProvCodeReverse[v.data.name]]);
               return allProvUnits[v.name];
               // return ;
             }
