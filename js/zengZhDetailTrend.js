@@ -51,7 +51,7 @@ function zengZhDetailTrendDraw(jsonName, mapId){
             top:'1%',                                                                                                                                                                                                                           
             textAlign:'center',                                                                                                                                                                                                                 
             // subtext: 'From ExcelHome',                                                                                                                                                                                                       
-            sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'                                                                                                                                                                                  
+            // sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'                                                                                                                                                                                  
         },                                                                                                                                                                                                                                      
         animation: false,
         tooltip : {                                                                                                                                                                                                                             
