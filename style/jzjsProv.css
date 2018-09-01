@@ -6,6 +6,9 @@
 .fs-op-type {
   text-align: center !important;
 }
+.fs-op-time {
+  padding-right: 0px !important;
+}
 .fs-table > tbody > tr > th {
   text-align: center;
   font-size : 0.8em;
