@@ -211,8 +211,8 @@ function guoJEchartsDraw(jsonName, mapId){
           formatter: function (v) {
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
-              // return allnationUnits[v.name];
-              return ;
+              return allnationUnits[v.name];
+              // return ;
             }
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"SDR";
