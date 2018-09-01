@@ -26,7 +26,7 @@ function wangJEchartsDraw(jsonName, mapId){
     };
     option = {
         title: {
-            text: '各省净收入情况单位（万元）',
+            text: '各省净收入情况（单位：万元）',
             left:'50%',
             top:'1%',
             textAlign:'center',
