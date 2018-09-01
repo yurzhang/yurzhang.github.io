@@ -165,7 +165,7 @@ function echartsDraw(jsonName, mapId){
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
               // return allProvUnits[v.name];
-              return ;
+              return false;
             }
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"MB";

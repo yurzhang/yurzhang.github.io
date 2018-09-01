@@ -212,7 +212,7 @@ function guoJEchartsDraw(jsonName, mapId){
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
               // return allnationUnits[v.name];
-              return ;
+              return false;
             }
             // console.log(v.data.fromName+"  "+v.data.toName+"  "+v.data.unitsValue);
             return "Top"+v.data.sortIdx+": "+v.data.fromName+" -> "+v.data.toName+" : "+v.data.unitsValue+"SDR";
