@@ -76,7 +76,7 @@ function overviewEchartsDraw(jsonName, mapId){
                 center: ['50%', '50%'],
                 label: {
                     normal: {
-                        formatter: '{b} {d}%  ',
+                        formatter: '{d}% ',
                     }
                 },
                 data:[
