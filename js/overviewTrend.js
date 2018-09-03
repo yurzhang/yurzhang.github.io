@@ -161,7 +161,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['二月','三月','四月','五月','六月','七月']
+            data: ['三月','四月','五月','六月','七月','八月']
         },
         yAxis: {
             type: 'value',
