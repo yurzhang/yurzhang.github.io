@@ -352,6 +352,7 @@ var gWorldLatlong={
   '特克斯和凯科斯群岛': [-71.797928,21.694025],
   '圣文森特和格林纳丁斯': [-61.287228,12.984305],
   '美属维尔京群岛': [-64.896335,18.335765],
+  '马尔代夫'： [4.2,73.5],
 };
 
 var gWorldCode = {
@@ -571,6 +572,7 @@ var gWorldCode = {
 'HK': '中国香港',
 'MO': '中国澳门',
 'TW': '中国台湾',
+'MV': '马尔代夫',
 }
 
 var gWorldName = {
@@ -791,6 +793,7 @@ var gWorldName = {
 'HK': 'Hongkong',
 'MO': 'Macao',
 'TW': 'Taiwan',
+'MV': 'The Republic of Maldives'
 }
 
 var gWorldCodeReverse = {
