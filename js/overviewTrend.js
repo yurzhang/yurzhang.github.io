@@ -43,6 +43,32 @@ function overviewEchartsDraw(jsonName, mapId){
         },
         animation: false,
         series : [
+            // {
+            //     name: '话单量及占比',
+            //     type: 'pie',
+            //     radius : '55%',
+            //     center: ['50%', '50%'],
+            //     label: {
+            //         normal: {
+            //             position: 'inner',
+            //             formatter: '{d}%',
+            //         }
+            //     },
+            //     data:[
+            //         {value:32788038370, name:'网间'},
+            //         {value:3183864451, name:'增值'},
+            //         {value:89890991021, name:'国内漫游'},
+            //         {value:723636143, name:'国际漫游'},
+            //         {value:9518070513, name:'其它'}
+            //     ],
+            //     itemStyle: {
+            //         emphasis: {
+            //             shadowBlur: 10,
+            //             shadowOffsetX: 0,
+            //             shadowColor: 'rgba(0, 0, 0, 0.5)'
+            //         }
+            //     }
+            // },
             {
                 name: '话单量及占比',
                 type: 'pie',
@@ -50,72 +76,7 @@ function overviewEchartsDraw(jsonName, mapId){
                 center: ['50%', '50%'],
                 label: {
                     normal: {
-                        position: 'inner',
-                        formatter: '{d}%',
-                    }
-                },
-                data:[
-                    {value:32788038370, name:'网间'},
-                    {value:3183864451, name:'增值'},
-                    {value:89890991021, name:'国内漫游'},
-                    {value:723636143, name:'国际漫游'},
-                    {value:9518070513, name:'其它'}
-                ],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            },
-            {
-                name: '话单量及占比',
-                type: 'pie',
-                radius : '55%',
-                center: ['50%', '50%'],
-                label: {
-                    normal: {
-                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                        backgroundColor: '#fff',
-                        borderColor: '#aaa',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                        // shadowBlur:3,
-                        // shadowOffsetX: 2,
-                        // shadowOffsetY: 2,
-                        // shadowColor: '#999',
-                        // padding: [0, 7],
-                        rich: {
-                            a: {
-                                color: '#999',
-                                lineHeight: 22,
-                                align: 'center'
-                            },
-                            // abg: {
-                            //     backgroundColor: '#333',
-                            //     width: '100%',
-                            //     align: 'right',
-                            //     height: 22,
-                            //     borderRadius: [4, 4, 0, 0]
-                            // },
-                            hr: {
-                                borderColor: '#aaa',
-                                width: '100%',
-                                borderWidth: 0.5,
-                                height: 0
-                            },
-                            b: {
-                                fontSize: 16,
-                                lineHeight: 33
-                            },
-                            per: {
-                                color: '#eee',
-                                backgroundColor: '#334455',
-                                padding: [2, 4],
-                                borderRadius: 2
-                            }
-                        }
+                        formatter: '{b} {d}%  ',
                     }
                 },
                 data:[
