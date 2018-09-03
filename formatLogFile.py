@@ -110,7 +110,7 @@ class formatLog():
 
     def startFormat(self):
         self.guoJ('tmpdir/gjjs_trend_201808.log', 'guoJProvTrend_201808.json')
-        self.guoN('gprsr_monthtrend_201807.log', 'guoNProvTrend_201807.json')
+        self.guoN('gprsr_monthtrend_20180903.log', 'guoNProvTrend_201808.json')
         self.zengZh('tmpdir/zengZhZG201807.csv', 'zengZhTrend_201807.json')
 
 if __name__ == '__main__':
