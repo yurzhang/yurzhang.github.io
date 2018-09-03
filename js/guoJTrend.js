@@ -244,7 +244,7 @@ function guoJEchartsDraw(jsonName, mapId){
       
       geo: {
           map: 'world',
-          zoom: 5.5,
+          zoom: 5,
           center: [104.195397,35.86166],
           label: {
               normal:{//是图形在默认状态下的样式
