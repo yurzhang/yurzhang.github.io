@@ -6,9 +6,9 @@ function echartsDraw(jsonName, mapId){
   var roamProvUnits = new Array();
   var msiProvUnits = new Array();
 
-  console.log(jsonName);
+  // console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
-    console.log("get data 23333");
+    // console.log("get data 23333");
     $.each(data, function(infoIndex,info){ 
         provDate.push({
           roamAndMsi: info.roam+','+info.msi,
@@ -145,8 +145,8 @@ function echartsDraw(jsonName, mapId){
     // echarts.registerMap('china', data);
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
-    console.log(mapId);
-    console.log("initail map ok");
+    // console.log(mapId);
+    // console.log("initail map ok");
 
     var nowSplitList = [
       {start: 0, end: 0, label: 'Top10', color: gStateColor[0]},
@@ -169,7 +169,7 @@ function echartsDraw(jsonName, mapId){
             // console.log(v);
             if (v.seriesName == 'mapContentX') {
               // console.log(v);
-              console.log(roamProvUnits[gProvCodeReverse[v.data.name]]);
+              // console.log(roamProvUnits[gProvCodeReverse[v.data.name]]);
               return allProvUnits[v.name];
               // return ;
             }

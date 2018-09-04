@@ -4,9 +4,9 @@ function guoJEchartsDraw(jsonName, mapId){
 
   var nationSetTop10 = new Set();
 
-  console.log(jsonName);
+  // console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data){ 
-    console.log("get data guoj");
+    // console.log("get data guoj");
     $.each(data, function(infoIndex,info){ 
         nationDate.push({
           roamAndMsi: info.roam+','+info.msi,
@@ -184,12 +184,12 @@ function guoJEchartsDraw(jsonName, mapId){
           data: worldLegendData
       }
     );
-    console.log(".....................................................");
+    // console.log(".....................................................");
     // echarts.registerMap('china', data);
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
-    console.log(mapId);
-    console.log("initail map ok");
+    // console.log(mapId);
+    // console.log("initail map ok");
 
     var nowSplitList = [
       {start: 0, end: 0, label: 'Top10', color: gStateColor[0]},

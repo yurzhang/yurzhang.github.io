@@ -4,9 +4,9 @@ function overviewEchartsDraw(jsonName, mapId){
 
   var provSetTop10 = new Set();
 
-  console.log(jsonName);
+  // console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data) { 
-    console.log("get data overview");
+    // console.log("get data overview");
     $.each(data, function(infoIndex, info) { 
         provDate.push({
           provId: info.roam+','+info.msi,
@@ -16,8 +16,8 @@ function overviewEchartsDraw(jsonName, mapId){
 
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
-    console.log(mapId);
-    console.log("initail map ok");
+    // console.log(mapId);
+    // console.log("initail map ok");
 
     var labelRight = {
       normal: {
@@ -108,9 +108,9 @@ function overviewTrendEchartsDraw(jsonName, mapId){
 
   var provSetTop10 = new Set();
 
-  console.log(jsonName);
+  // console.log(jsonName);
   $.get("../data/"+jsonName).done(function(data) { 
-    console.log("get data overview");
+    // console.log("get data overview");
     $.each(data, function(infoIndex, info) { 
         provDate.push({
           provId: info.roam+','+info.msi,
@@ -120,8 +120,8 @@ function overviewTrendEchartsDraw(jsonName, mapId){
 
     var bmapCharts = echarts.init(document.getElementById(mapId));
     // 初始化地图
-    console.log(mapId);
-    console.log("initail map ok");
+    // console.log(mapId);
+    // console.log("initail map ok");
 
     option = {
         title: {
