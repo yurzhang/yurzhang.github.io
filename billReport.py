@@ -55,7 +55,7 @@ class dingHook():
         data = {
                 "actionCard": {
                     "title": "集中综合结算出账进度", 
-                    "text": "![出账进度图](https://github.com/yurzhang/yurzhang.github.io/blob/master/pic/bill_sqr_big.png?raw=true)",
+                    "text": "![出账进度图](https://github.com/yurzhang/yurzhang.github.io/blob/master/pic/bill_sqr_big2.png?raw=true)",
                     "hideAvatar": "0", 
                     "btnOrientation": "0", 
                     "singleTitle" : "阅读详细报告",
