@@ -81,9 +81,7 @@ function overviewEchartsDraw(jsonName, mapId){
                 },
                 data:[
                     {value:32031082922, name:'网间'},
-
-                    {value:3183864451, name:'增值'},
-
+                    {value:3117160377, name:'增值'},
                     {value:97782770250, name:'国内漫游'},
                     {value:731210527, name:'国际漫游'},
                     {value:10853650338, name:'其它'}
@@ -179,7 +177,7 @@ function overviewTrendEchartsDraw(jsonName, mapId){
             {
                 name:'增值',
                 type:'line',
-                data:[3414460581, 2727134216, 2815955134, 2354935076, 3304982359, 3183864451]
+                data:[2727134216, 2815955134, 2354935076, 3304982359, 3183864451, 3117160377]
             },
             {
                 name:'国内漫游',
