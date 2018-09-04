@@ -25,7 +25,7 @@ function overviewEchartsDraw(jsonName, mapId){
       }
     };
     option = {
-        color:['#C23531','#2F4554','#C4CCD3', '#D48265', '#91C7AE', ],
+        color:['#C23531','#2F4554','#A5E4EC', '#D48265', '#91C7AE', ],
         title : {
             text: '本月各业务话单量占比',
             x:'center'
