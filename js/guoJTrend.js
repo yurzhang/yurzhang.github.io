@@ -195,7 +195,7 @@ function guoJEchartsDraw(jsonName, mapId){
       {start: 0, end: 0, label: 'Top10', color: gStateColor[0]},
       {start: 1, end: 1, label: 'Top10', color: gStateColor[1]}
     ];
-    let option = {
+    var option = {
       backgroundColor: '#fff',
       title : {
           text: '国际漫入漫出Top10',

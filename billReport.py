@@ -13,9 +13,9 @@ class dingHook():
         # 运维测试群
         # self.url = "https://oapi.dingtalk.com/robot/send?access_token=1ed1aecf97d47005d8a63501741469417f82da68f734b4d7dd4a04ada80f98b9"
         # 机器人聊天群
-        # self.url = "https://oapi.dingtalk.com/robot/send?access_token=787a0a849ff62dde619d099091955974851f8e3ab46a956219b22bbf6dff4457"
+        self.url = "https://oapi.dingtalk.com/robot/send?access_token=787a0a849ff62dde619d099091955974851f8e3ab46a956219b22bbf6dff4457"
         # 运维组群
-        self.url = "https://oapi.dingtalk.com/robot/send?access_token=8136899be963625eb8341b69ab4f41981e955f22dba181a949baba146adfaaaa"
+        # self.url = "https://oapi.dingtalk.com/robot/send?access_token=8136899be963625eb8341b69ab4f41981e955f22dba181a949baba146adfaaaa"
         # 出账进度群 智能监控机器人
         # self.url = "https://oapi.dingtalk.com/robot/send?access_token=7cfb7d01d71b3a8ce57ad2c2ca8315c48d3914b459919869387f4a4b912c57ee"
         # 出账进度大群 慎重
