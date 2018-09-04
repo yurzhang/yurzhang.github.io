@@ -13,13 +13,14 @@ class dingHook():
         # 运维测试群
         # self.url = "https://oapi.dingtalk.com/robot/send?access_token=1ed1aecf97d47005d8a63501741469417f82da68f734b4d7dd4a04ada80f98b9"
         # 机器人聊天群
-        # self.url = "https://oapi.dingtalk.com/robot/send?access_token=787a0a849ff62dde619d099091955974851f8e3ab46a956219b22bbf6dff4457"
+        self.url = "https://oapi.dingtalk.com/robot/send?access_token=787a0a849ff62dde619d099091955974851f8e3ab46a956219b22bbf6dff4457"
         # 运维组群
-        self.url = "https://oapi.dingtalk.com/robot/send?access_token=8136899be963625eb8341b69ab4f41981e955f22dba181a949baba146adfaaaa"
+        # self.url = "https://oapi.dingtalk.com/robot/send?access_token=8136899be963625eb8341b69ab4f41981e955f22dba181a949baba146adfaaaa"
         # 出账进度群 智能监控机器人
         # self.url = "https://oapi.dingtalk.com/robot/send?access_token=7cfb7d01d71b3a8ce57ad2c2ca8315c48d3914b459919869387f4a4b912c57ee"
-        # 移动运维群 晨检机器人
+        # 出账进度大群 慎重
         # self.url = "https://oapi.dingtalk.com/robot/send?access_token=7842fbde8a639753ac9f69c50e2d6d029ec0667a6bc0421e4536e340c5379644"
+
         self.opType = ["wangJ", "zengZh", "guoN", "guoJ"]
         self.step = ["state0", "state1", "state2", "state3", "state4", "state5", "state6", "state7", "state8", "state9", "state10", ]
 
@@ -55,7 +56,7 @@ class dingHook():
         data = {
                 "actionCard": {
                     "title": "集中综合结算出账进度", 
-                    "text": "![出账进度图](https://github.com/yurzhang/yurzhang.github.io/blob/master/pic/bill_sqr_big3.png?raw=true)",
+                    "text": "![出账进度图](https://github.com/yurzhang/yurzhang.github.io/blob/master/pic/bill_sqr_big4.png?raw=true)",
                     "hideAvatar": "0", 
                     "btnOrientation": "0", 
                     "singleTitle" : "阅读详细报告",
