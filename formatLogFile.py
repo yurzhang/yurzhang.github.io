@@ -49,7 +49,7 @@ class formatLog():
     def __init__(self, basePath):
         self.basePath = basePath
         self.utilsXObj = utilsX()
-        self.logNameList = ['gprsr_monthtrend_201809.log', 'gjjs_trend_201809.log', 'wjjs_netin_201809.log']
+        self.logNameList = ['gprsr_monthtrend_201807.log', 'gjjs_trend_201807.log', 'wjjs_netin_201807.log']
 
     def guoJ(self, fileName, outFileName):
         records = self.utilsXObj.readFile(self.basePath+"/"+fileName)
@@ -109,9 +109,9 @@ class formatLog():
         return retAns
 
     def startFormat(self):
-        self.guoJ('tmpdir/gjjs_trend_201809.log', 'guoJProvTrend_201809.json')
-        self.guoN('gprsr_monthtrend_20181003.log', 'guoNProvTrend_201809.json')
-        self.zengZh('tmpdir/zengZh201809.csv', 'zengZhTrend_201809.json')
+        self.guoJ('tmpdir/gjjs_trend_201808.log', 'guoJProvTrend_201808.json')
+        self.guoN('gprsr_monthtrend_20180903.log', 'guoNProvTrend_201808.json')
+        self.zengZh('tmpdir/zengZh201808.csv', 'zengZhTrend_201808.json')
 
 if __name__ == '__main__':
     formatLogObj = formatLog("/settle/settle/bin/xukf/test/fileStatInfo")
